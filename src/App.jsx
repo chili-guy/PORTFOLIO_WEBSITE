@@ -6,6 +6,7 @@ import Expertise from './components/Expertise'
 import Projects from './components/Projects'
 import Stack from './components/Stack'
 import FAQ from './components/FAQ'
+import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -21,6 +22,7 @@ function App() {
         <Expertise />
         <Projects />
         <Stack />
+        <Testimonials />
         <FAQ />
         <CTA />
       </main>

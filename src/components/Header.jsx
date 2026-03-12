@@ -18,6 +18,7 @@ const Header = () => {
         { name: 'Especialidades', href: '#expertise' },
         { name: 'Projetos', href: '#projects' },
         { name: 'Tecnologias', href: '#stack' },
+        { name: 'Avaliações', href: '#testimonials' },
         { name: 'Dúvidas', href: '#faq' },
     ];
 
