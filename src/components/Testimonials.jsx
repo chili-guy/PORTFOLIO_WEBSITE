@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, ExternalLink, Code2, Database, Layout } from 'lucide-react';
+import { Star, Quote, ExternalLink } from 'lucide-react';
 
 const reviews = [
     {
@@ -8,7 +8,6 @@ const reviews = [
         rating: 5,
         comment: "Trabalhar com Ramon foi excepcional. Superou as expectativas referente a tempo e qualidade dos serviços. Parabéns!",
         date: "Mar 2026",
-        icon: <Code2 className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
@@ -16,7 +15,6 @@ const reviews = [
         rating: 5,
         comment: "O Ramon é um profissional rápido na entrega e realizou todas as alterações e ajustes solicitados, mostrando-se bastante disposto e paciente! Obrigado pelo trabalho!",
         date: "Fev 2026",
-        icon: <Layout className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
@@ -24,7 +22,6 @@ const reviews = [
         rating: 5,
         comment: "Ramon é um ótimo profissional, foi um prazer trabalhar com ele! Sempre muito educado e compreensível com minha falta de experiência. Recomendo bastante.",
         date: "Dez 2025",
-        icon: <Code2 className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
@@ -32,7 +29,6 @@ const reviews = [
         rating: 5,
         comment: "Ágil, técnico e direto, resolveu meu problema de forma rápida, recomendo.",
         date: "Set 2025",
-        icon: <Database className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
@@ -40,7 +36,6 @@ const reviews = [
         rating: 5,
         comment: "Muito atencioso e rapido na entrega !! Com certeza indico para outros usuários do site ! Obrigado Ramon pela presteza",
         date: "Ago 2025",
-        icon: <Database className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
@@ -48,7 +43,6 @@ const reviews = [
         rating: 5,
         comment: "Excelente experiência trabalhar com o Ramon! A comunicação foi sempre clara e rápida, demonstrou muito profissionalismo e domínio técnico em Power BI. O projeto foi entregue com qualidade acima do esperado, trazendo soluções práticas e criativas para as demandas.",
         date: "Ago 2025",
-        icon: <Database className="size-4" />,
         client: "Cliente 99Freelas"
     }
 ];
@@ -87,9 +81,6 @@ const Testimonials = () => {
                                     {[...Array(5)].map((_, i) => (
                                         <Star key={i} className="size-3.5 fill-primary text-primary" />
                                     ))}
-                                </div>
-                                <div className="p-2 rounded-lg bg-white/5 text-primary opacity-40 group-hover:opacity-100 transition-opacity">
-                                    {review.icon}
                                 </div>
                             </div>
 
