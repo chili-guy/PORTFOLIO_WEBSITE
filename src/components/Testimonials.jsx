@@ -1,27 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, ExternalLink } from 'lucide-react';
+import { Star, Quote, ExternalLink, Code2, Database, Layout } from 'lucide-react';
 
 const reviews = [
     {
-        project: "Calculadora web para precificação de projetos de arquitetura",
+        project: "Corrigir integração da API em PWA JavaScript",
+        rating: 5,
+        comment: "Trabalhar com Ramon foi excepcional. Superou as expectativas referente a tempo e qualidade dos serviços. Parabéns!",
+        date: "Mar 2026",
+        icon: <Code2 className="size-4" />,
+        client: "Cliente 99Freelas"
+    },
+    {
+        project: "Design de landing page SaaS de engenharia",
+        rating: 5,
+        comment: "O Ramon é um profissional rápido na entrega e realizou todas as alterações e ajustes solicitados, mostrando-se bastante disposto e paciente! Obrigado pelo trabalho!",
+        date: "Fev 2026",
+        icon: <Layout className="size-4" />,
+        client: "Cliente 99Freelas"
+    },
+    {
+        project: "Calculadora web para precificação de arquitetura",
         rating: 5,
         comment: "Ramon é um ótimo profissional, foi um prazer trabalhar com ele! Sempre muito educado e compreensível com minha falta de experiência. Recomendo bastante.",
         date: "Dez 2025",
-        client: "Cliente 99Freelas"
-    },
-    {
-        project: "Criação de Landing Page do Zero para venda de produto",
-        rating: 5,
-        comment: "Excelente profissional! Demanda atrasou um pouco por culpa minha, mas ele é muito bom. Recomento ",
-        date: "Dez 2025",
-        client: "Cliente 99Freelas"
-    },
-    {
-        project: "Desenvolvedor Power BI para dashboards de eficiência",
-        rating: 5,
-        comment: "Excelente o serviço executado.",
-        date: "Set 2025",
+        icon: <Code2 className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
@@ -29,20 +32,23 @@ const reviews = [
         rating: 5,
         comment: "Ágil, técnico e direto, resolveu meu problema de forma rápida, recomendo.",
         date: "Set 2025",
+        icon: <Database className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
-        project: "Edição de planilha do Excel/Google Sheets",
+        project: "Integração do Conta Azul com Power BI",
         rating: 5,
-        comment: "O Ramon fez o meu projeto exatamente como eu precisava. Muito profissional. Entrega super rapida e com um otimo atendimento.",
-        date: "Set 2025",
+        comment: "Muito atencioso e rapido na entrega !! Com certeza indico para outros usuários do site ! Obrigado Ramon pela presteza",
+        date: "Ago 2025",
+        icon: <Database className="size-4" />,
         client: "Cliente 99Freelas"
     },
     {
-        project: "Documentação de fórmulas e cálculos de planilhas",
+        project: "Suporte na elaboração de dashboard em Power BI",
         rating: 5,
-        comment: "O profissional realizou o trabalho de forma muito rápida e eficiente, demonstrando competência, atenção aos detalhes e profissionalismo.",
-        date: "Set 2025",
+        comment: "Excelente experiência trabalhar com o Ramon! A comunicação foi sempre clara e rápida, demonstrou muito profissionalismo e domínio técnico em Power BI. O projeto foi entregue com qualidade acima do esperado, trazendo soluções práticas e criativas para as demandas.",
+        date: "Ago 2025",
+        icon: <Database className="size-4" />,
         client: "Cliente 99Freelas"
     }
 ];
@@ -60,7 +66,7 @@ const Testimonials = () => {
                         O que dizem os <span className="gradient-text">Clientes</span>
                     </h2>
                     <p className="text-slate-500 text-sm max-w-xl font-medium">
-                        Depoimentos reais extraídos na íntegra do meu perfil no <span className="text-white">99Freelas</span>.
+                        Depoimentos reais extraídos na íntegra, priorizando projetos de <span className="text-white">Engenharia, Automação e Sistemas</span>.
                     </p>
                 </div>
 
@@ -76,10 +82,15 @@ const Testimonials = () => {
                         >
                             <Quote className="absolute top-6 right-8 size-10 text-primary/5 group-hover:text-primary/10 transition-colors" />
 
-                            <div className="flex gap-1">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="size-4 fill-primary text-primary" />
-                                ))}
+                            <div className="flex items-center justify-between">
+                                <div className="flex gap-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} className="size-3.5 fill-primary text-primary" />
+                                    ))}
+                                </div>
+                                <div className="p-2 rounded-lg bg-white/5 text-primary opacity-40 group-hover:opacity-100 transition-opacity">
+                                    {review.icon}
+                                </div>
                             </div>
 
                             <p className="text-slate-300 text-sm leading-relaxed font-medium italic relative z-10 flex-1">
@@ -87,10 +98,10 @@ const Testimonials = () => {
                             </p>
 
                             <div className="pt-6 border-t border-white/5 mt-auto">
-                                <h4 className="text-white font-bold text-sm tracking-wide line-clamp-2">
+                                <h4 className="text-white font-bold text-sm tracking-wide line-clamp-2 min-h-[40px]">
                                     {review.project}
                                 </h4>
-                                <div className="flex items-center gap-2 mt-2">
+                                <div className="flex items-center gap-2 mt-3">
                                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
                                         {review.client}
                                     </span>
