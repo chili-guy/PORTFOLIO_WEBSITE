@@ -41,10 +41,7 @@ const Stack = () => {
 
     return (
         <section className="py-12 lg:py-32 relative overflow-hidden" id="stack">
-            {/* Background elements */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_50%_50%,rgba(242,185,13,0.03)_0%,transparent_50%)]"></div>
-            </div>
+
 
             <div className="mx-auto max-w-7xl px-6 relative z-10">
                 <div className="flex flex-col items-center text-center gap-6 mb-12 lg:mb-24">
