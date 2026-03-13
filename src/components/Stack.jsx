@@ -76,10 +76,6 @@ const Stack = () => {
             <div className="mx-auto max-w-7xl px-6">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center gap-3 mb-8 lg:mb-12">
-                    <div className="flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
-                        <Cpu className="size-3 text-primary" />
-                        <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em]">{t.stack.badge}</span>
-                    </div>
                     <p className="text-slate-500 text-sm max-w-lg font-medium">
                         {t.stack.subtitle}
                     </p>
