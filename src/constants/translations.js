@@ -126,11 +126,6 @@ export const translations = {
                 }
             ]
         },
-        stack: {
-            badge: 'Ecossistema Técnico',
-            subtitle: 'Stack selecionada para entregar projetos robustos, escaláveis e modernos de ponta a ponta.',
-            groups: ['Frontend', 'Backend & Dados', 'IA & Automação', 'Deploy & Infra']
-        },
         testimonials: {
             badge: 'Feedback Real',
             title: 'O que dizem os',
@@ -378,11 +373,6 @@ export const translations = {
                     features: ['Personalized Support', 'Secure Registration', 'Multicultural Focus', 'Agile Integration'],
                 }
             ]
-        },
-        stack: {
-            badge: 'Technical Ecosystem',
-            subtitle: 'Stack selected to deliver robust, scalable, and modern end-to-end projects.',
-            groups: ['Frontend', 'Backend & Data', 'AI & Automation', 'Deploy & Infra']
         },
         testimonials: {
             badge: 'Real Feedback',

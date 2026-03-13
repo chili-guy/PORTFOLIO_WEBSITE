@@ -7,7 +7,6 @@ import FAQ from './components/FAQ'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
-import Stack from './components/Stack'
 import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
           <Projects />
           <Testimonials />
           <Expertise />
-          <Stack />
           <FAQ />
           <CTA />
         </main>
