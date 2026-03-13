@@ -18,11 +18,11 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Projects />
+        <Testimonials />
         <Stats />
         <Expertise />
-        <Projects />
         <Stack />
-        <Testimonials />
         <FAQ />
         <CTA />
       </main>
