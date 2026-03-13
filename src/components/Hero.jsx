@@ -42,19 +42,19 @@ const Hero = () => {
                             </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-4 pt-4">
-                            <a href="#projects" className="button-primary h-14 px-10 group shadow-[0_0_30px_rgba(242,185,13,0.15)] inline-flex items-center justify-center gap-2">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#projects" className="button-primary w-full sm:w-auto h-16 sm:h-14 px-10 group shadow-[0_0_40px_rgba(242,185,13,0.2)] inline-flex items-center justify-center gap-3 rounded-none uppercase tracking-[0.2em] text-[11px] font-black border-none ring-1 ring-primary/20 hover:ring-primary/50 transition-all">
                                 {t.hero.ctaPrimary}
-                                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="size-4 group-hover:translate-x-2 transition-transform" />
                             </a>
                             <a
                                 href={`https://wa.me/5591991266136?text=${encodeURIComponent(t.hero.waMsg)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="button-secondary h-14 px-10 group inline-flex items-center justify-center gap-2"
+                                className="button-secondary w-full sm:w-auto h-16 sm:h-14 px-10 group inline-flex items-center justify-center gap-3 rounded-none uppercase tracking-[0.2em] text-[11px] font-black border-2 border-white/10 hover:border-primary/50 hover:text-primary transition-all bg-transparent backdrop-blur-sm"
                             >
                                 {t.hero.ctaSecondary}
-                                <ChevronRight className="size-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                                <ChevronRight className="size-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                             </a>
                         </div>
 
