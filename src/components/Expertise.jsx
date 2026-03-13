@@ -118,8 +118,17 @@ const TechMarquee = ({ icons }) => {
         <div className="relative w-full overflow-hidden py-1">
             <motion.div
                 className="flex gap-2 w-max"
-                animate={{ x: ["0%", "-33.33%"] }}
-                transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 15, ease: "linear" } }}
+                initial={{ x: "0%" }}
+                animate={{ x: "-33.33%" }}
+                transition={{
+                    x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: 15,
+                        ease: "linear",
+                        delay: 0
+                    }
+                }}
             >
                 {duplicatedIcons.map((tech, i) => (
                     <div key={`${tech.icon}-${i}`} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.07] flex-shrink-0">
@@ -146,7 +155,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle, t }) => (
                 <ChevronDown className="size-4" />
             </motion.div>
         </button>
-        <AnimatePresence initial={false}>
+        <AnimatePresence>
             {isOpen && (
                 <motion.div key="content" initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                     <div className="px-5 pb-5 flex flex-col gap-4 border-t border-white/5">
