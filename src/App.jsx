@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Stats from './components/Stats'
+
 import Expertise from './components/Expertise'
 import Projects from './components/Projects'
 import Stack from './components/Stack'
@@ -20,7 +20,7 @@ function App() {
         <Hero />
         <Projects />
         <Testimonials />
-        <Stats />
+
         <Expertise />
         <Stack />
         <FAQ />

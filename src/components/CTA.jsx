@@ -4,13 +4,13 @@ import { Send, Calendar, Globe } from 'lucide-react';
 
 const CTA = () => {
     return (
-        <section className="py-12 lg:py-28 relative">
+        <section className="py-8 lg:py-14 relative">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="relative overflow-hidden rounded-[2.5rem] bg-[#0d0d0b] border border-white/5 p-12 lg:p-24 shadow-2xl group">
+                <div className="relative overflow-hidden rounded-[2.5rem] bg-[#0d0d0b] border border-white/5 p-8 lg:p-14 shadow-2xl group">
                     {/* High Energy Background */}
                     <div className="absolute top-0 right-0 -z-10 w-full h-full opacity-30">
-                        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[150px] rounded-full animate-float"></div>
-                        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-900/10 blur-[150px] rounded-full"></div>
+                        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/15 blur-3xl rounded-full"></div>
+                        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-900/8 blur-3xl rounded-full"></div>
                         <div className="absolute inset-0 bg-grid opacity-10"></div>
                     </div>
 

@@ -5,22 +5,22 @@ import ParticlesBackground from './ParticlesBackground';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-20 pb-12 lg:pb-0 overflow-hidden">
+        <section className="relative min-h-[80vh] flex items-center pt-16 pb-8 lg:pb-0 overflow-hidden">
             <ParticlesBackground />
             {/* Background Elements */}
             <div className="absolute top-0 right-0 -z-10 w-full h-full bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-            <div className="absolute top-1/4 right-0 -z-10 w-96 h-96 bg-primary/10 blur-[120px] rounded-full animate-pulse"></div>
+            <div className="absolute top-1/4 right-0 -z-10 w-96 h-96 bg-primary/8 blur-3xl rounded-full"></div>
 
             <div className="mx-auto max-w-7xl px-6 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col gap-8 relative z-10"
+                        className="flex flex-col gap-5 relative z-10"
                     >
-                        <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 w-fit backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 w-fit">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>

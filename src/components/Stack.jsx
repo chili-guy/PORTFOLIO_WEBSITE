@@ -40,11 +40,11 @@ const Stack = () => {
     ];
 
     return (
-        <section className="py-12 lg:py-32 relative overflow-hidden" id="stack">
+        <section className="py-8 lg:py-16 relative overflow-hidden" id="stack">
 
 
             <div className="mx-auto max-w-7xl px-6 relative z-10">
-                <div className="flex flex-col items-center text-center gap-6 mb-12 lg:mb-24">
+                <div className="flex flex-col items-center text-center gap-4 mb-8 lg:mb-12">
                     <div className="flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
                         <Cpu className="size-3 text-primary animate-pulse" />
                         <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em]">Core Technical Stack</span>
@@ -58,9 +58,9 @@ const Stack = () => {
                     </p>
                 </div>
 
-                <div className="space-y-12 lg:space-y-24">
+                <div className="space-y-8 lg:space-y-10">
                     {techGroups.map((group, groupIdx) => (
-                        <div key={groupIdx} className="space-y-10">
+                        <div key={groupIdx} className="space-y-5">
                             <div className="flex items-center gap-4">
                                 <h4 className="text-xs font-bold text-slate-500 uppercase tracking-[0.4em] whitespace-nowrap">
                                     {group.title}
@@ -78,11 +78,12 @@ const Stack = () => {
                                         transition={{ delay: i * 0.05 + groupIdx * 0.1 }}
                                         className="group relative"
                                     >
-                                        <div className="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div className="absolute -inset-2 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                         <div className="relative px-6 py-4 bg-surface-dark border border-white/5 hover:border-primary/40 transition-all duration-300 flex items-center gap-4">
                                             <img
                                                 src={`https://cdn.simpleicons.org/${item.icon}/white`}
                                                 alt={item.name}
+                                                loading="lazy"
                                                 className="size-5 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
                                             />
                                             <span className="text-xs lg:text-sm font-bold text-slate-400 group-hover:text-white transition-colors uppercase tracking-widest font-display">

@@ -111,9 +111,9 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="py-20 lg:py-28 relative overflow-hidden" id="testimonials">
+        <section className="py-8 lg:py-14 relative overflow-hidden" id="testimonials">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-16 lg:mb-20">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8 lg:mb-10">
                     <div className="flex flex-col items-start text-left gap-6">
                         <div className="flex items-center gap-4">
                             <h2 className="text-sm font-bold text-primary italic uppercase tracking-widest">Feedback Real</h2>
@@ -143,7 +143,7 @@ const Testimonials = () => {
 
                 <div
                     ref={scrollRef}
-                    className="flex gap-6 md:gap-10 overflow-x-auto pb-24 pt-10 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
+                    className="flex gap-6 md:gap-10 overflow-x-auto pb-10 pt-4 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
                     style={{ alignItems: 'stretch' }}
                 >
                     {reviews.map((review, index) => (

@@ -49,7 +49,7 @@ const FAQItem = ({ question, answer, index }) => {
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex justify-between items-start py-8 text-left group gap-4"
+                className="w-full flex justify-between items-start py-5 text-left group gap-4"
             >
                 <div className="flex items-start gap-6">
                     <span className="text-primary font-mono text-xs opacity-40 group-hover:opacity-100 transition-opacity mt-2">0{index + 1}/</span>
@@ -69,7 +69,7 @@ const FAQItem = ({ question, answer, index }) => {
                         exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden"
                     >
-                        <div className="pb-8 pl-14 text-slate-400 text-base leading-relaxed max-w-2xl font-medium">
+                        <div className="pb-5 pl-12 text-slate-400 text-base leading-relaxed max-w-2xl font-medium">
                             {answer}
                         </div>
                     </motion.div>
@@ -81,9 +81,9 @@ const FAQItem = ({ question, answer, index }) => {
 
 const FAQ = () => {
     return (
-        <section className="py-12 lg:py-28 relative" id="faq">
+        <section className="py-8 lg:py-14 relative" id="faq">
             <div className="mx-auto max-w-4xl px-6">
-                <div className="flex flex-col items-center text-center gap-6 mb-12 lg:mb-20">
+                <div className="flex flex-col items-center text-center gap-4 mb-8 lg:mb-12">
                     <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                         <HelpCircle className="size-6" />
                     </div>
@@ -96,7 +96,7 @@ const FAQ = () => {
                 </div>
 
                 <div className="bg-surface-dark/20 rounded-3xl p-4 border border-white/5 backdrop-blur-sm">
-                    <div className="bg-surface-dark/40 rounded-2xl p-4 lg:p-12">
+                    <div className="bg-surface-dark/40 rounded-2xl p-3 lg:p-8">
                         {FAQData.map((item, index) => (
                             <FAQItem key={index} index={index} question={item.question} answer={item.answer} />
                         ))}

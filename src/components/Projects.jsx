@@ -64,9 +64,9 @@ const Projects = () => {
     };
 
     return (
-        <section className="py-12 lg:py-28 relative overflow-hidden" id="projects">
+        <section className="py-8 lg:py-14 relative overflow-hidden" id="projects">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-10 lg:mb-20">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-6 lg:mb-10">
                     <div className="flex flex-col items-start text-left gap-6">
                         <div className="flex items-center gap-4">
                             <h2 className="text-sm font-bold text-primary">Trabalhos em Destaque</h2>
@@ -96,7 +96,7 @@ const Projects = () => {
 
                 <div
                     ref={scrollRef}
-                    className="flex gap-6 md:gap-14 overflow-x-auto pb-24 pt-10 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing group/projects items-stretch"
+                    className="flex gap-6 md:gap-14 overflow-x-auto pb-12 pt-6 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing group/projects items-stretch"
                 >
                     {projects.map((project, index) => (
                         <motion.div
