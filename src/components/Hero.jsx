@@ -10,7 +10,7 @@ const Hero = () => {
     const t = translations[language];
 
     return (
-        <section className="relative min-h-[80vh] flex items-center pt-16 pb-8 lg:pb-0">
+        <section className="relative min-h-[85vh] flex items-center pt-24 lg:pt-32 pb-8 lg:pb-0">
             <ParticlesBackground />
             {/* Background Elements */}
             <div className="absolute top-0 right-0 -z-10 w-full h-full bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
