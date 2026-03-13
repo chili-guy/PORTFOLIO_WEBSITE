@@ -1,11 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Binary } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import ParticlesBackground from './ParticlesBackground';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../constants/translations';
 
 const Hero = () => {
+    const { language } = useLanguage();
+    const t = translations[language];
+
     return (
-        <section className="relative min-h-[80vh] flex items-center pt-16 pb-8 lg:pb-0 overflow-hidden">
+        <section className="relative min-h-[80vh] flex items-center pt-16 pb-8 lg:pb-0">
             <ParticlesBackground />
             {/* Background Elements */}
             <div className="absolute top-0 right-0 -z-10 w-full h-full bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
@@ -25,26 +30,30 @@ const Hero = () => {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">DISPONÍVEL PARA PROJETOS</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">{t.hero.badge}</span>
                         </div>
 
                         <div className="space-y-4">
                             <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold leading-tight text-white">
-                                Sistemas <span className="gradient-text">Full Stack</span> de Ponta a Ponta
+                                {t.hero.title1} <span className="gradient-text">{t.hero.title2}</span> {t.hero.title3}
                             </h1>
                             <p className="text-base lg:text-lg text-slate-400 max-w-lg leading-relaxed font-medium">
-                                Do front-end ao back-end: construo sites, sistemas e automações completas que
-                                <span className="text-white"> resolvem o seu problema por inteiro</span>, sem deixar pontas soltas.
+                                {t.hero.subtitle}
                             </p>
                         </div>
 
                         <div className="flex flex-wrap gap-4 pt-4">
                             <a href="#projects" className="button-primary h-14 px-10 group shadow-[0_0_30px_rgba(242,185,13,0.15)] inline-flex items-center justify-center gap-2">
-                                EXPLORAR PROJETOS
+                                {t.hero.ctaPrimary}
                                 <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                             </a>
-                            <a href="#stack" className="button-secondary h-14 px-10 group inline-flex items-center justify-center gap-2">
-                                STACK TÉCNICA
+                            <a
+                                href={`https://wa.me/5591991266136?text=${encodeURIComponent(t.hero.waMsg)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="button-secondary h-14 px-10 group inline-flex items-center justify-center gap-2"
+                            >
+                                {t.hero.ctaSecondary}
                                 <ChevronRight className="size-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                             </a>
                         </div>

@@ -1,41 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
-
-const FAQData = [
-    {
-        question: 'Quais tipos de projetos você desenvolve?',
-        answer: 'Desenvolvo desde Landing Pages focadas em conversão e sites institucionais até sistemas web complexos, dashboards interativos em Power BI, automações de planilhas (VBA/Macros) e integrações completas via API.'
-    },
-    {
-        question: 'Qual é o prazo médio de entrega?',
-        answer: 'O prazo varia conforme a complexidade: Landing Pages costumam ser entregues em 5 a 10 dias úteis. Sistemas personalizados e automações complexas dependem do escopo, mas sempre trabalho com cronogramas claros e entregas graduais para acompanhamento.'
-    },
-    {
-        question: 'Como funciona o suporte pós-entrega?',
-        answer: 'Ofereço um período de garantia técnica para correção de eventuais bugs sem custo adicional. Além disso, disponibilizo planos de manutenção para atualizações de segurança, novas funcionalidades e suporte contínuo.'
-    },
-    {
-        question: 'O código/sistema será meu após o pagamento?',
-        answer: 'Com certeza. Após a conclusão do projeto e quitação dos valores, todos os arquivos, códigos-fonte e acessos são transferidos integralmente para você. Você detém a propriedade total da solução.'
-    },
-    {
-        question: 'Você trabalha com integrações de pagamento?',
-        answer: 'Sim. Tenho vasta experiência integrando APIs de pagamento como Mercado Pago, Pagar.me, Stripe e sistemas bancários, garantindo fluxos de checkout seguros e automatizados.'
-    },
-    {
-        question: 'Consegue automatizar processos manuais em planilhas?',
-        answer: 'Sim, este é um dos meus diferenciais. Utilizo VBA e Macros avançadas para transformar planilhas complexas do Excel em ferramentas automatizadas que economizam horas de trabalho manual.'
-    },
-    {
-        question: 'Como é feito o pagamento?',
-        answer: 'Para projetos via 99Freelas, seguimos a segurança da própria plataforma. Para projetos diretos, geralmente trabalhamos com 50% de entrada e 50% na entrega, ou parcelamento conforme o progresso do projeto.'
-    },
-    {
-        question: 'Meu site será responsivo (rodar no celular)?',
-        answer: 'Sem dúvida. Hoje o acesso mobile é majoritário, então todos os meus projetos são desenvolvidos com a metodologia Mobile-First, garantindo que funcionem perfeitamente em dispositivos de todos os tamanhos.'
-    }
-];
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../constants/translations';
 
 const FAQItem = ({ question, answer, index }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -80,6 +47,9 @@ const FAQItem = ({ question, answer, index }) => {
 };
 
 const FAQ = () => {
+    const { language } = useLanguage();
+    const t = translations[language];
+
     return (
         <section className="py-8 lg:py-14 relative" id="faq">
             <div className="mx-auto max-w-4xl px-6">
@@ -88,16 +58,16 @@ const FAQ = () => {
                         <HelpCircle className="size-6" />
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold text-white">
-                        Perguntas <span className="gradient-text">Frequentes</span>
+                        {t.faq.title} <span className="gradient-text">{t.faq.titleAccent}</span>
                     </h2>
                     <p className="text-slate-500 font-bold text-xs">
-                        Respostas técnicas para dúvidas estratégicas.
+                        {t.faq.subtitle}
                     </p>
                 </div>
 
                 <div className="bg-surface-dark/20 rounded-3xl p-4 border border-white/5 backdrop-blur-sm">
                     <div className="bg-surface-dark/40 rounded-2xl p-3 lg:p-8">
-                        {FAQData.map((item, index) => (
+                        {t.faq.data.map((item, index) => (
                             <FAQItem key={index} index={index} question={item.question} answer={item.answer} />
                         ))}
                     </div>

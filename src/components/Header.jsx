@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '../lib/utils';
 import { Terminal, Menu, X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../constants/translations';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { language, setLanguage } = useLanguage();
+    const t = translations[language];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,12 +19,26 @@ const Header = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Especialidades', href: '#expertise' },
-        { name: 'Projetos', href: '#projects' },
-        { name: 'Tecnologias', href: '#stack' },
-        { name: 'Avaliações', href: '#testimonials' },
-        { name: 'Dúvidas', href: '#faq' },
+        { name: t.nav.expertise, href: '#expertise' },
+        { name: t.nav.projects, href: '#projects' },
+        { name: t.nav.testimonials, href: '#testimonials' },
+        { name: t.nav.faq, href: '#faq' },
     ];
+
+    const Flag = ({ lang, active, emoji }) => (
+        <button
+            onClick={() => setLanguage(lang)}
+            className={cn(
+                "flex items-center justify-center size-8 rounded-full transition-all border",
+                active
+                    ? "border-primary bg-primary/10 grayscale-0 scale-110"
+                    : "border-transparent grayscale opacity-40 hover:opacity-100 hover:grayscale-0"
+            )}
+            title={lang.toUpperCase()}
+        >
+            <span className="text-lg leading-none">{emoji}</span>
+        </button>
+    );
 
     return (
         <header
@@ -32,7 +50,7 @@ const Header = () => {
             )}
         >
             <div className="mx-auto max-w-7xl px-6 h-full flex items-center justify-between">
-                <div className="flex items-center gap-3 group cursor-pointer">
+                <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <div className="size-9 bg-gradient-to-br from-primary to-amber-700 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(242,185,13,0.3)]">
                         <Terminal className="text-background-dark size-5 stroke-[2.5px]" />
                     </div>
@@ -42,27 +60,42 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm font-medium text-slate-400 hover:text-primary transition-colors relative group"
-                        >
-                            {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                        </a>
-                    ))}
-                </nav>
+                {/* Desktop Nav + Flags */}
+                <div className="hidden md:flex items-center gap-8">
+                    <nav className="flex items-center gap-8">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-sm font-medium text-slate-400 hover:text-primary transition-colors relative group"
+                            >
+                                {link.name}
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                            </a>
+                        ))}
+                    </nav>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden text-slate-100"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X /> : <Menu />}
-                </button>
+                    <div className="h-4 w-px bg-white/10 mx-2" />
+
+                    <div className="flex items-center gap-2">
+                        <Flag lang="pt" active={language === 'pt'} emoji="🇧🇷" />
+                        <Flag lang="en" active={language === 'en'} emoji="🇺🇸" />
+                    </div>
+                </div>
+
+                {/* Mobile Menu Toggle + Flags */}
+                <div className="flex items-center gap-4 md:hidden">
+                    <div className="flex items-center gap-1.5 mr-2">
+                        <Flag lang="pt" active={language === 'pt'} emoji="🇧🇷" />
+                        <Flag lang="en" active={language === 'en'} emoji="🇺🇸" />
+                    </div>
+                    <button
+                        className="text-slate-100"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -73,7 +106,7 @@ const Header = () => {
                 <div className="p-6 flex flex-col gap-4">
                     {navLinks.map((link) => (
                         <a
-                            key={link.name}
+                            key={link.href}
                             href={link.href}
                             className="text-sm font-bold text-slate-100 hover:text-primary transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}

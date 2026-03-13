@@ -1,7 +1,12 @@
 import React from 'react';
 import { Terminal, ArrowUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../constants/translations';
 
 const Footer = () => {
+    const { language } = useLanguage();
+    const t = translations[language];
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -20,18 +25,17 @@ const Footer = () => {
                             <h2 className="text-2xl font-bold text-white">Ramon Sousa</h2>
                         </div>
                         <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-sm">
-                            Engenheiro de Software com foco em sistemas de alta fidelidade e interfaces premium.
-                            Projetando o futuro da tecnologia um commit por vez.
+                            {t.footer.desc}
                         </p>
                     </div>
 
                     <div className="space-y-6">
-                        <h4 className="text-[10px] font-bold text-primary">Navegação</h4>
+                        <h4 className="text-[10px] font-bold text-primary">{t.footer.navTitle}</h4>
                         <nav className="flex flex-col gap-3">
-                            <a href="#expertise" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">Especialidades</a>
-                            <a href="#projects" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">Projetos</a>
-                            <a href="#stack" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">Tecnologias</a>
-                            <a href="#faq" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">Dúvidas</a>
+                            <a href="#expertise" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">{t.nav.expertise}</a>
+                            <a href="#projects" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">{t.nav.projects}</a>
+                            <a href="#testimonials" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">{t.nav.testimonials}</a>
+                            <a href="#faq" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">{t.nav.faq}</a>
                         </nav>
                     </div>
 
@@ -46,7 +50,7 @@ const Footer = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-border-dark text-[10px] font-bold text-slate-600">
-                    <p>© 2026 RAMON SOUSA ENGINEERING. ALL SYSTEMS OPERATIONAL.</p>
+                    <p>{t.footer.rights}</p>
                 </div>
             </div>
         </footer>
