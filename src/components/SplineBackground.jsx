@@ -13,23 +13,23 @@ export default function SplineBackground() {
             transition={{ duration: 1 }}
             className="absolute inset-0 -z-10 w-full h-full overflow-hidden bg-black"
         >
-            {/* Base Background - Visual continuity */}
-            <div className="absolute inset-0 bg-black" />
-            
-            {/* Dark gradient for contrast */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-[1] pointer-events-none" />
-
             <div className="absolute inset-0 overflow-hidden transform-gpu">
-                {isInView && (
+                {/* Visual continuity background */}
+                <div className="absolute inset-0 bg-black" />
+                
+                {/* Adjusted gradient for mobile screen - less aggressive on small screens */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-[1] pointer-events-none opacity-60 md:opacity-100" />
+
+                <div className="absolute inset-x-0 top-0 h-full overflow-hidden">
                     <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="w-full h-full"
+                        transition={{ duration: 1.5 }}
+                        className="w-full h-[calc(100%+60px)] origin-center" // 60px taller to hide logo
                     >
                         <spline-viewer 
                             loading-anim-type="spinner-small-dark" 
-                            url="https://prod.spline.design/5f9cX97UwjHyVYF7/scene.splinecode"
+                            url="https://prod.spline.design/ZLiceCwM3mkMT6cd/scene.splinecode"
                             style={{ 
                                 width: '100%', 
                                 height: '100%',
@@ -37,10 +37,7 @@ export default function SplineBackground() {
                              }}
                         ></spline-viewer>
                     </motion.div>
-                )}
-                
-                {/* Optimized Anti-watermark mask */}
-                <div className="absolute bottom-0 right-0 w-[165px] h-[40px] bg-black z-10 pointer-events-none" />
+                </div>
             </div>
         </motion.div>
     );
