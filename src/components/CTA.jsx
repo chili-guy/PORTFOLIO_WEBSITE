@@ -16,7 +16,7 @@ const CTA = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-32 lg:py-48 flex flex-col justify-center items-center overflow-hidden bg-black" id="cta">
+        <section ref={sectionRef} className="relative py-48 lg:py-80 min-h-[700px] lg:min-h-[1000px] flex flex-col justify-center items-center overflow-hidden bg-black" id="cta">
             {/* Video Background */}
             <video
                 ref={videoRef}
@@ -34,18 +34,18 @@ const CTA = () => {
             <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
 
-            <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10 relative z-30 flex flex-col items-center justify-center gap-8 sm:gap-12 text-center">
+            <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10 relative z-30 flex flex-col items-center justify-center gap-12 sm:gap-20 text-center">
 
-                {/* Text Content - Adjusted position (~25% lift) */}
-                <div className="w-full max-w-5xl px-4 flex justify-center -translate-y-10 lg:-translate-y-36">
+                {/* Text Content - Balanced for taller section */}
+                <div className="w-full max-w-5xl px-4 flex justify-center -translate-y-8 lg:-translate-y-24">
                     <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black leading-tight sm:leading-[1.1] text-white tracking-tighter uppercase mb-2 sm:mb-6 text-center w-full">
                         {t.cta.title} <br className="hidden sm:block" />
                         <span className="hero-highlight">{t.cta.titleAccent}</span>
                     </h2>
                 </div>
 
-                {/* Action - Lowered more (~10% total) */}
-                <div className="flex justify-center w-full max-w-xs translate-y-6 lg:translate-y-16">
+                {/* Action - Balanced for taller section */}
+                <div className="flex justify-center w-full max-w-xs translate-y-8 lg:translate-y-20">
                     <a
                         href={`https://wa.me/5591991266136?text=${encodeURIComponent(t.cta.waMsg)}`}
                         target="_blank"
