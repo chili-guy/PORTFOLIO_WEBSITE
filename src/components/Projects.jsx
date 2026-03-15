@@ -106,22 +106,28 @@ const Projects = () => {
                     {projectsList.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className={`glass-card border-white/5 group/card hover:border-primary/40 transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.05] lg:group-hover/projects:opacity-20 lg:hover:!opacity-100 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
+                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ 
+                                duration: 0.8,
+                                delay: index * 0.15,
+                                ease: [0.16, 1, 0.3, 1]
+                            }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            className={`glass-card border-white/5 group/card transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.03] lg:group-hover/projects:opacity-30 lg:hover:!opacity-100 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
                             onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
                         >
                             <div className="relative overflow-hidden aspect-[16/10] flex-shrink-0">
-                                <img src={project.image} alt={project.title} loading="lazy" className={`w-full h-full object-cover object-top block transition-transform duration-700 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
+                                <img src={project.image} alt={project.title} loading="lazy" className={`w-full h-full object-cover object-top block transition-all duration-1000 group-hover/card:scale-110 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
                                 {project.status === 'live' && (
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 bg-black/20 backdrop-blur-[2px]">
-                                        <div className="px-6 py-3 bg-primary text-black font-bold text-xs uppercase tracking-[0.2em] rounded-none flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-30 bg-black/40 backdrop-blur-[2px]">
+                                        <div className="px-8 py-4 bg-primary text-black font-black text-xs uppercase tracking-[0.25em] rounded-none flex items-center gap-3 transform translate-y-6 group-hover/card:translate-y-0 transition-all duration-500 shadow-2xl">
                                             {t.projects.viewOnline} <ArrowUpRight className="size-4" />
                                         </div>
                                     </div>
                                 )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover/card:opacity-20 transition-opacity duration-500" />
+                                
                                 {project.status === 'coming_soon' && (
                                     <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
                                         <div className="size-12 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center border border-white/10 mb-3">
@@ -131,39 +137,39 @@ const Projects = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="p-8 lg:p-10 flex-1 flex flex-col">
+                            <div className="p-8 lg:p-12 flex-1 flex flex-col">
                                 <div className="space-y-6 flex-1">
-                                    <div className="space-y-3">
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{project.category}</span>
+                                    <div className="space-y-2">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-[11px] font-black text-primary uppercase tracking-[0.2em]">{project.category}</span>
                                             {project.status === 'live' && (
-                                                <div className="flex items-center gap-1.5 overflow-hidden">
-                                                    <div className="size-1.5 rounded-none bg-green-500 animate-pulse" />
-                                                    <span className="text-[9px] font-bold text-green-500/80 uppercase">{t.projects.active}</span>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="size-2 rounded-full bg-green-500 animate-pulse" />
+                                                    <span className="text-[10px] font-bold text-green-500/80 uppercase tracking-widest">{t.projects.active}</span>
                                                 </div>
                                             )}
                                         </div>
-                                        <h4 className="text-3xl font-bold text-white group-hover:text-primary transition-colors">{project.title}</h4>
-                                        <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 min-h-[44px] lg:min-h-[48px]">{project.desc}</p>
+                                        <h4 className="text-3xl lg:text-4xl font-bold text-white group-hover/card:text-primary transition-colors duration-500">{project.title}</h4>
+                                        <p className="text-slate-400 text-base leading-relaxed font-medium line-clamp-2 min-h-[48px] pt-2">{project.desc}</p>
                                     </div>
-                                    <div className="grid grid-cols-2 gap-4 min-h-[60px]">
+                                    <div className="grid grid-cols-2 gap-x-6 gap-y-3 pt-2">
                                         {project.features.slice(0, 4).map((feature, i) => (
-                                            <div key={i} className="flex items-center gap-2 text-[10px] font-bold text-slate-500">
-                                                <div className="size-1 rounded-none bg-primary/40 flex-shrink-0" />
+                                            <div key={i} className="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                                <div className="size-1.5 rounded-none bg-primary/40 flex-shrink-0" />
                                                 {feature}
                                             </div>
                                         ))}
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-between pt-6 border-t border-white/5 mt-auto">
-                                    <div className="flex gap-2">
+                                <div className="flex items-center justify-between pt-8 border-t border-white/5 mt-10">
+                                    <div className="flex gap-3">
                                         {project.tags.slice(0, 3).map((tag, i) => (
-                                            <span key={i} className="px-2 py-1 rounded-none bg-white/5 text-[9px] font-mono font-bold text-slate-500">{tag}</span>
+                                            <span key={i} className="px-3 py-1.5 rounded-none bg-white/5 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-white/[0.03]">{tag}</span>
                                         ))}
                                     </div>
                                     {project.status === 'live' && (
-                                        <div className="text-white/40 group-hover/card:text-primary transition-colors">
-                                            <Globe className="size-5" />
+                                        <div className="text-white/40 group-hover/card:text-primary group-hover/card:scale-110 transition-all duration-500">
+                                            <Globe className="size-6" />
                                         </div>
                                     )}
                                 </div>

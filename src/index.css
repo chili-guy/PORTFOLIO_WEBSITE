@@ -40,27 +40,31 @@
 
 @layer components {
   .glass-card {
-    @apply bg-surface-dark border border-white/10 relative overflow-hidden shadow-lg;
-    transform: translateZ(0); /* Hardware acceleration */
-    will-change: transform, opacity;
+    @apply bg-surface-dark border border-white/10 relative overflow-hidden shadow-lg transition-all duration-500;
+    transform: translateZ(0);
+    will-change: transform, opacity, border-color, box-shadow;
+  }
+
+  .glass-card:hover {
+    @apply border-primary/20 shadow-primary/5 shadow-2xl;
   }
 
   .glass-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none transition-opacity duration-500;
+  }
+
+  .glass-card:hover::before {
+    @apply opacity-30;
+  }
+
+  .reveal-up {
+    @apply opacity-0 translate-y-8;
   }
 
   .gradient-text {
-    @apply text-primary;
-  }
-
-  .hero-highlight {
-    @apply text-white font-black whitespace-nowrap;
-  }
-
-  .tech-card {
-    @apply p-6 border border-border-dark bg-surface-dark/40 transition-all duration-300 relative;
-    content-visibility: auto;
+    @apply text-primary bg-clip-text;
+    /* Optional: can add actual gradient here if needed */
   }
 
   .button-primary {
@@ -82,30 +86,22 @@
     pointer-events: none;
   }
 
-  /* Reduce filter and animation cost on mobile */
+  /* Optimized effects for mobile */
   @media (max-width: 1024px) {
-    .backdrop-blur-md, 
-    .backdrop-blur-sm,
-    .backdrop-blur-lg {
-      backdrop-filter: none !important; /* Disable blur on mobile for massive FPS boost */
-      background-color: rgba(0, 0, 0, 0.8) !important; /* Fallback to solid alpha */
+    .backdrop-blur-xl,
+    .backdrop-blur-2xl {
+      backdrop-filter: blur(12px) !important; /* Lighter blur for performance */
+      background-color: rgba(0, 0, 0, 0.85) !important;
     }
 
+    /* Keep shadows subtle on mobile */
     .shadow-2xl, .shadow-xl, .shadow-lg {
-      box-shadow: none !important;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* Disable subtle float animations that add up */
-    .animate-float, .animate-pulse {
+    /* Selective animation disabling only if very weak */
+    .animate-float-slow {
       animation: none !important;
-    }
-
-    /* Hardware acceleration and rendering optimization for all major sections */
-    section {
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-      will-change: transform;
     }
   }
 
@@ -115,5 +111,10 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Smooth reveal utility */
+  .reveal {
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }

@@ -30,22 +30,30 @@ const About = () => {
                         <div className="absolute -top-10 -left-10 size-40 bg-primary/5 rounded-full blur-3xl animate-pulse" />
 
                         <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-white/10 bg-surface-dark shadow-2xl">
-                            <img
+                            <motion.img
+                                whileHover={{ scale: 1.15 }}
+                                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                                 src="/profile.png"
                                 alt="Ramon Sousa"
                                 loading="lazy"
-                                className="w-full h-full object-cover transition-all duration-700 scale-105 hover:scale-100"
+                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                             />
                             {/* Glass overlay at the bottom */}
-                            <div className="absolute bottom-6 left-6 right-6 p-6 glass-card border-white/10 backdrop-blur-md rounded-2xl flex justify-between items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                                viewport={{ once: true }}
+                                className="absolute bottom-6 left-6 right-6 p-6 glass-card border-white/10 backdrop-blur-md rounded-2xl flex justify-between items-center transform group-hover:scale-[1.02] transition-transform duration-500"
+                            >
                                 <div>
                                     <h4 className="text-white font-bold text-lg">Ramon Sousa</h4>
-                                    <p className="text-primary text-xs font-bold uppercase tracking-widest">{t.aboutContent.photoBadge}</p>
+                                    <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em]">{t.aboutContent.photoBadge}</p>
                                 </div>
-                                <div className="size-10 rounded-none bg-primary flex items-center justify-center">
-                                    <span className="text-black font-black text-xs">RS</span>
+                                <div className="size-11 rounded-none bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
+                                    <span className="text-black font-black text-sm">RS</span>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
 
@@ -76,10 +84,25 @@ const About = () => {
                         {/* Stats Grid */}
                         <div className="grid grid-cols-3 gap-6 pt-10 border-t border-white/5">
                             {stats.map((stat, index) => (
-                                <div key={index} className="space-y-2 text-center lg:text-left">
-                                    <h3 className="text-3xl lg:text-4xl font-black text-white leading-none">{stat.value}</h3>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-tight">{stat.label}</p>
-                                </div>
+                                <motion.div 
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
+                                    viewport={{ once: true }}
+                                    className="space-y-2 text-center lg:text-left"
+                                >
+                                    <h3 className="text-3xl lg:text-5xl font-black text-white leading-none tracking-tighter">
+                                        <motion.span
+                                            initial={{ opacity: 0 }}
+                                            whileInView={{ opacity: 1 }}
+                                            transition={{ delay: 0.6 + index * 0.1 }}
+                                        >
+                                            {stat.value}
+                                        </motion.span>
+                                    </h3>
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-tight">{stat.label}</p>
+                                </motion.div>
                             ))}
                         </div>
 

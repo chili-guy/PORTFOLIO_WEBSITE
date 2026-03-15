@@ -69,30 +69,45 @@ const Testimonials = () => {
                     {reviewsList.map((review, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="glass-card p-10 border-white/5 lg:hover:border-primary/40 transition-all duration-700 flex-shrink-0 w-[85%] md:w-[60%] lg:w-[35%] snap-center relative flex flex-col lg:hover:scale-[1.02] group"
-                            style={{ height: '420px' }}
+                            initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ 
+                                duration: 0.8,
+                                delay: index * 0.1,
+                                ease: [0.16, 1, 0.3, 1]
+                            }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="glass-card p-10 lg:p-12 border-white/5 lg:hover:border-primary/40 transition-all duration-700 flex-shrink-0 w-[85%] md:w-[60%] lg:w-[35%] snap-center relative flex flex-col lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 group"
+                            style={{ height: '480px' }}
                         >
-                            <Quote className="absolute top-8 right-10 size-12 text-primary/5 group-hover:text-primary/10 transition-colors" />
-                            <div className="flex gap-1 mb-8">
+                            <Quote className="absolute top-8 right-10 size-14 text-primary/5 group-hover:text-primary/10 transition-all duration-700 group-hover:rotate-12" />
+                            <div className="flex gap-1.5 mb-10">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="size-4 fill-primary text-primary" />
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, scale: 0 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: index * 0.1 + i * 0.1 }}
+                                        viewport={{ once: true }}
+                                    >
+                                        <Star className="size-5 fill-primary text-primary" />
+                                    </motion.div>
                                 ))}
                             </div>
-                            <p className="text-slate-300 text-sm lg:text-base leading-relaxed font-medium relative z-10 flex-1 mb-10 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 6, WebkitBoxOrient: 'vertical' }}>
+                            <p className="text-slate-300 text-base lg:text-lg leading-relaxed font-medium relative z-10 flex-1 mb-12 overflow-hidden italic" style={{ display: '-webkit-box', WebkitLineClamp: 7, WebkitBoxOrient: 'vertical' }}>
                                 "{review.comment.trim()}"
                             </p>
-                            <div className="pt-8 border-t border-white/5 mt-auto">
-                                <h4 className="text-white font-bold text-base tracking-wide mb-3">{review.project}</h4>
-                                <div className="flex items-center gap-3">
-                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest bg-white/5 px-2 py-1 rounded-none">{review.client}</span>
-                                    <span className="text-[10px] text-slate-700 font-black">•</span>
-                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{review.date}</span>
+                            <div className="pt-10 border-t border-white/5 mt-auto relative z-10">
+                                <h4 className="text-white font-bold text-lg tracking-tight mb-4 group-hover:text-primary transition-colors duration-500">{review.project}</h4>
+                                <div className="flex items-center gap-4">
+                                    <span className="text-[11px] text-slate-500 font-black uppercase tracking-[0.2em] bg-white/5 border border-white/[0.05] px-3 py-1.5 rounded-none">{review.client}</span>
+                                    <span className="text-[11px] text-slate-700 font-black">•</span>
+                                    <span className="text-[11px] text-slate-500 font-black uppercase tracking-[0.2em]">{review.date}</span>
                                 </div>
                             </div>
+                            
+                            {/* Decorative gradient corner */}
+                            <div className="absolute -bottom-10 -right-10 size-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>
