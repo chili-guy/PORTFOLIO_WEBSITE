@@ -29,10 +29,15 @@ const CTA = () => {
                 <source src="/Flow_delpmaspu_.mp4" type="video/mp4" />
             </video>
 
-            {/* Cinematic Overlay - more aggressive blending to avoid 'cuts' */}
-            <div className="absolute inset-0 z-10 bg-black/40 pointer-events-none"></div>
-            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            {/* Cinematic Overlay - Rounded Vignette & Edge Blending */}
+            <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,1)_100%)]"></div>
+            <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_20%,black_90%)] opacity-80"></div>
+            
+            {/* Edge Security Blending */}
+            <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
             <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10 relative z-30 flex flex-col items-center justify-center gap-12 sm:gap-20 text-center">
 
