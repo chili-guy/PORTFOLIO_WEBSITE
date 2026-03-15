@@ -142,9 +142,9 @@ const TechMarquee = ({ icons }) => {
 };
 
 const AccordionItem = ({ item, index, isOpen, onToggle, t }) => (
-    <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className={`rounded-xl border overflow-hidden transition-colors duration-300 ${isOpen ? item.borderColor : 'border-white/5'}`}>
+    <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className={`rounded-none border overflow-hidden transition-colors duration-300 ${isOpen ? item.borderColor : 'border-white/5'}`}>
         <button onClick={onToggle} className="w-full flex items-center gap-4 px-5 py-4 text-left">
-            <div className={`size-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen ? `${item.glowColor} ${item.accentColor}` : 'bg-white/5 text-slate-500'}`}>
+            <div className={`size-9 rounded-none flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen ? `${item.glowColor} ${item.accentColor}` : 'bg-white/5 text-slate-500'}`}>
                 {item.icon}
             </div>
             <div className="flex-1 min-w-0">
@@ -186,9 +186,9 @@ const DesktopPanel = ({ active, setActive, principles, t }) => {
         <div className="grid grid-cols-5 gap-6">
             <div className="col-span-2 flex flex-col gap-2">
                 {principles.map((item, index) => (
-                    <button key={index} onClick={() => setActive(index)} className={`group relative flex items-center gap-4 px-5 py-4 rounded-xl border transition-all duration-300 text-left w-full ${active === index ? `${item.borderColor} bg-surface-dark` : 'border-white/5 bg-surface-dark/30 hover:bg-surface-dark/60 hover:border-white/10'}`}>
-                        {active === index && <motion.div layoutId="activeTabDesktop" className={`absolute left-0 top-3 bottom-3 w-0.5 rounded-full ${item.glowBg}`} transition={{ type: 'spring', stiffness: 400, damping: 30 }} />}
-                        <div className={`size-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${active === index ? `${item.glowColor} ${item.accentColor}` : 'bg-white/5 text-slate-500'}`}>
+                    <button key={index} onClick={() => setActive(index)} className={`group relative flex items-center gap-4 px-5 py-4 rounded-none border transition-all duration-300 text-left w-full ${active === index ? `${item.borderColor} bg-surface-dark` : 'border-white/5 bg-surface-dark/30 hover:bg-surface-dark/60 hover:border-white/10'}`}>
+                        {active === index && <motion.div layoutId="activeTabDesktop" className={`absolute left-0 top-3 bottom-3 w-0.5 rounded-none ${item.glowBg}`} transition={{ type: 'spring', stiffness: 400, damping: 30 }} />}
+                        <div className={`size-9 rounded-none flex items-center justify-center flex-shrink-0 transition-all duration-300 ${active === index ? `${item.glowColor} ${item.accentColor}` : 'bg-white/5 text-slate-500'}`}>
                             {item.icon}
                         </div>
                         <div className="min-w-0">
@@ -202,11 +202,11 @@ const DesktopPanel = ({ active, setActive, principles, t }) => {
             <div className="col-span-3 relative">
                 <AnimatePresence mode="wait">
                     <motion.div key={active} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28 }} className="h-full">
-                        <div className={`relative h-full rounded-2xl border ${current.borderColor} bg-surface-dark overflow-hidden p-8 lg:p-10 flex flex-col gap-6`}>
+                        <div className={`relative h-full rounded-none border ${current.borderColor} bg-surface-dark overflow-hidden p-8 lg:p-10 flex flex-col gap-6`}>
                             <div className={`absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-bl ${current.color} opacity-60 blur-3xl pointer-events-none`} />
                             <div className="relative z-10 flex flex-col gap-6 h-full">
                                 <div className="flex items-start gap-4">
-                                    <div className={`size-12 rounded-xl flex items-center justify-center flex-shrink-0 ${current.glowColor} ${current.accentColor}`}>
+                                    <div className={`size-12 rounded-none flex items-center justify-center flex-shrink-0 ${current.glowColor} ${current.accentColor}`}>
                                         {current.icon}
                                     </div>
                                     <div>

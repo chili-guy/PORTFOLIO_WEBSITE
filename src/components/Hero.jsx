@@ -25,10 +25,10 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl"
                 >
-                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 w-fit mb-8 backdrop-blur-sm">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none bg-green-500/10 border border-green-500/20 w-fit mb-8 backdrop-blur-sm">
                         <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-green-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-none h-2.5 w-2.5 bg-green-500"></span>
                         </span>
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-400 animate-blink">
                             {t.hero.badge}

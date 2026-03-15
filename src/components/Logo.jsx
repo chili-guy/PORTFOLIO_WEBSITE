@@ -34,7 +34,7 @@ const Logo = ({ className }) => {
                 transform="translate(-5, 10)"
             />
             {/* Decorative Node */}
-            <circle cx="50" cy="50" r="2" className="fill-primary animate-pulse" />
+            <rect x="48" y="48" width="4" height="4" className="fill-primary animate-pulse" />
         </svg>
     );
 };

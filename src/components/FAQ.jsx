@@ -24,7 +24,7 @@ const FAQItem = ({ question, answer, index }) => {
                         {question}
                     </span>
                 </div>
-                <div className="size-8 rounded-full bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shrink-0 mt-0.5 lg:mt-1">
+                <div className="size-8 rounded-none bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shrink-0 mt-0.5 lg:mt-1">
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         className="flex items-center justify-center"
@@ -59,7 +59,7 @@ const FAQ = () => {
         <section className="py-8 lg:py-14 relative" id="faq">
             <div className="mx-auto max-w-4xl px-6">
                 <div className="flex flex-col items-center text-center gap-4 mb-8 lg:mb-12">
-                    <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div className="size-12 rounded-none bg-primary/10 flex items-center justify-center text-primary">
                         <HelpCircle className="size-6" />
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold text-white">
@@ -70,8 +70,8 @@ const FAQ = () => {
                     </p>
                 </div>
 
-                <div className="bg-surface-dark/20 rounded-3xl p-4 border border-white/5 backdrop-blur-sm">
-                    <div className="bg-surface-dark/40 rounded-2xl p-3 lg:p-8">
+                <div className="bg-surface-dark/20 rounded-none p-4 border border-white/5 backdrop-blur-sm">
+                    <div className="bg-surface-dark/40 rounded-none p-3 lg:p-8">
                         {t.faq.data.map((item, index) => (
                             <FAQItem key={index} index={index} question={item.question} answer={item.answer} />
                         ))}

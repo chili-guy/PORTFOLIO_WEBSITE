@@ -30,7 +30,7 @@ const Header = () => {
         <button
             onClick={() => setLanguage(lang)}
             className={cn(
-                "flex items-center justify-center size-8 rounded-full transition-all border",
+                "flex items-center justify-center size-8 rounded-none transition-all border",
                 active
                     ? "border-primary bg-primary/10 grayscale-0 scale-110"
                     : "border-transparent grayscale opacity-40 hover:opacity-100 hover:grayscale-0"
@@ -61,7 +61,7 @@ const Header = () => {
                     <div className="flex flex-col">
                         <h2 className="text-lg font-black text-white leading-tight tracking-tighter uppercase">Ramon Sousa</h2>
                         <span className="text-[10px] text-primary font-black uppercase tracking-widest flex items-center gap-1.5">
-                            <span className="size-1 bg-primary rounded-full animate-pulse" />
+                            <span className="size-1 bg-primary rounded-none animate-pulse" />
                             Dev Fullstack
                         </span>
                     </div>
