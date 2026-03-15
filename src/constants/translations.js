@@ -12,7 +12,7 @@ export const translations = {
             title2: 'Desenvolva',
             title3: 'o seu Projeto',
             subtitle: 'Do front-end ao back-end: construo sites, sistemas e automações completas que resolvam o seu problema por inteiro, sem deixar pontas soltas.',
-            about: 'Ramon Sousa // Dev Fullstack focado em arquiteturas escaláveis, automações inteligentes e interfaces de alta fidelidade. Transformo desafios complexos em soluções digitais fluidas e eficientes.',
+            about: 'Ramon Sousa // Engenheiro de Software focado em arquiteturas escaláveis, automações inteligentes e interfaces de alta fidelidade. Transformo desafios complexos em soluções digitais fluidas e eficientes.',
             ctaPrimary: 'EXPLORAR PROJETOS',
             ctaSecondary: 'VAMOS CONVERSAR?',
             waMsg: 'Olá Ramon, vim pelo seu portfólio e gostaria de um orçamento!'
@@ -20,7 +20,7 @@ export const translations = {
         aboutContent: {
             badge: 'SOBRE MIM',
             title: 'Engenheiro de',
-            titleAccent: 'Soluções Digitais.',
+            titleAccent: 'Software.',
             text1: 'Sou Ramon Sousa, desenvolvedor Fullstack e Engenheiro de Software apaixonado por transformar ideias complexas em interfaces fluidas e sistemas robustos. Com foco em alta fidelidade técnica, meu objetivo é entregar não apenas código, mas soluções que impulsionam negócios e resolvem problemas reais.',
             text2: 'Minha jornada é marcada pela versatilidade: de automações avançadas em Excel e Python até a arquitetura de SaaS modernos com React e Node.js. Acredito que a tecnologia deve ser invisível, eficiente e, acima de tudo, focada no usuário final.',
             stats: {
@@ -33,7 +33,7 @@ export const translations = {
         },
         expertise: {
             badge: 'O que eu entrego',
-            title: 'Dev Fullstack.',
+            title: 'Engenheiro de Software.',
             titleAccent: 'Do front-end à IA.',
             requestService: 'Solicitar este serviço',
             waMsg: 'Olá Ramon, tenho interesse em ',
@@ -275,14 +275,14 @@ export const translations = {
             title2: 'Develop',
             title3: 'Your Project',
             subtitle: 'From front-end to back-end: I build websites, systems, and complete automations that solve your entire problem, leaving no loose ends.',
-            about: 'Ramon Sousa // Full Stack Developer focusing on scalable architectures, intelligent automations, and high-fidelity interfaces. Transforming complex challenges into fluid and efficient digital solutions.',
+            about: 'Ramon Sousa // Software Engineer focusing on scalable architectures, intelligent automations, and high-fidelity interfaces. Transforming complex challenges into fluid and efficient digital solutions.',
             ctaPrimary: 'EXPLORE PROJECTS',
             ctaSecondary: 'LET\'S CHAT?',
             waMsg: 'Hi Ramon, I came from your portfolio and would like a quote!'
         },
         aboutContent: {
             badge: 'ABOUT ME',
-            title: 'Digital Solutions',
+            title: 'Software',
             titleAccent: 'Engineer.',
             text1: 'I\'m Ramon Sousa, a Fullstack developer and Software Engineer passionate about transforming complex ideas into fluid interfaces and robust systems. Focusing on high technical fidelity, my goal is to deliver not just code, but solutions that drive business and solve real problems.',
             text2: 'My journey is marked by versatility: from advanced Excel and Python automations to the architecture of modern SaaS with React and Node.js. I believe technology should be invisible, efficient, and above all, focused on the end-user.',
@@ -296,7 +296,7 @@ export const translations = {
         },
         expertise: {
             badge: 'What I deliver',
-            title: 'Full Stack Developer.',
+            title: 'Software Engineer.',
             titleAccent: 'From front-end to AI.',
             requestService: 'Request this service',
             waMsg: 'Hi Ramon, I am interested in ',
