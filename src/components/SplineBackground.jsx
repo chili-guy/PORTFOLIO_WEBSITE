@@ -44,9 +44,9 @@ export default function SplineBackground() {
                             >
                                 <Spline
                                     scene="https://prod.spline.design/m65h6hm9S31ziTqn/scene.splinecode"
-                                    className="w-full h-full scale-[1.02] md:scale-100"
+                                    className="w-full h-full transform-gpu"
                                     onLoad={handleLoad}
-                                    style={{ pointerEvents: 'none' }}
+                                    style={{ pointerEvents: 'none', WebkitTransform: 'translateZ(0)' }}
                                 />
                             </motion.div>
                         </Suspense>

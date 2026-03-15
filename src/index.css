@@ -100,11 +100,13 @@
       animation: none !important;
     }
 
-    /* Hardware acceleration for all major sections */
+    /* Hardware acceleration and rendering optimization for all major sections */
     section {
       transform: translateZ(0);
       backface-visibility: hidden;
       perspective: 1000;
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 1000px; /* Placeholder size for better scrollbar stability */
     }
   }
 

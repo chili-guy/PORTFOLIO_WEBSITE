@@ -10,8 +10,8 @@ const ParticlesBackground = () => {
         
         // Mobile-first optimization: Reduce count and simplify
         const isMobile = window.innerWidth < 768;
-        const PARTICLE_COUNT = isMobile ? 30 : 60;
-        const CONNECTION_DISTANCE = isMobile ? 100 : 140;
+        const PARTICLE_COUNT = isMobile ? 20 : 60;
+        const CONNECTION_DISTANCE = isMobile ? 80 : 140;
         const PARTICLE_COLOR = '#0066FF'; // Match the theme blue
 
         let mouse = { x: null, y: null };

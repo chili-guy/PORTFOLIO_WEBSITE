@@ -25,6 +25,7 @@ const CTA = () => {
                 loop
                 muted
                 playsInline
+                preload={window.innerWidth < 768 ? "none" : "auto"}
             >
                 <source src="/Flow_delpmaspu_.mp4" type="video/mp4" />
             </video>
