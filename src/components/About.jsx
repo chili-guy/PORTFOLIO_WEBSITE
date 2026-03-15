@@ -40,7 +40,7 @@ const About = () => {
                             <div className="absolute bottom-6 left-6 right-6 p-6 glass-card border-white/10 backdrop-blur-md rounded-2xl flex justify-between items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <div>
                                     <h4 className="text-white font-bold text-lg">Ramon Sousa</h4>
-                                    <p className="text-primary text-xs font-bold uppercase tracking-widest">{t.aboutContent.badge}</p>
+                                    <p className="text-primary text-xs font-bold uppercase tracking-widest">{t.aboutContent.photoBadge}</p>
                                 </div>
                                 <div className="size-10 rounded-none bg-primary flex items-center justify-center">
                                     <span className="text-black font-black text-xs">RS</span>

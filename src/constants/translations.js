@@ -19,6 +19,7 @@ export const translations = {
         },
         aboutContent: {
             badge: 'SOBRE MIM',
+            photoBadge: 'ENGENHEIRO DE SOFTWARE',
             title: 'Engenheiro de',
             titleAccent: 'Software.',
             text1: 'Sou Ramon Sousa, desenvolvedor Fullstack e Engenheiro de Software apaixonado por transformar ideias complexas em interfaces fluidas e sistemas robustos. Com foco em alta fidelidade técnica, meu objetivo é entregar não apenas código, mas soluções que impulsionam negócios e resolvem problemas reais.',
@@ -282,6 +283,7 @@ export const translations = {
         },
         aboutContent: {
             badge: 'ABOUT ME',
+            photoBadge: 'SOFTWARE ENGINEER',
             title: 'Software',
             titleAccent: 'Engineer.',
             text1: 'I\'m Ramon Sousa, a Fullstack developer and Software Engineer passionate about transforming complex ideas into fluid interfaces and robust systems. Focusing on high technical fidelity, my goal is to deliver not just code, but solutions that drive business and solve real problems.',
