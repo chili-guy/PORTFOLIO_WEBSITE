@@ -82,12 +82,29 @@
     pointer-events: none;
   }
 
-  /* Reduce filter cost on mobile */
-  @media (max-width: 768px) {
+  /* Reduce filter and animation cost on mobile */
+  @media (max-width: 1024px) {
     .backdrop-blur-md, 
     .backdrop-blur-sm,
     .backdrop-blur-lg {
-      backdrop-filter: blur(4px) !important; /* Lighter blur for mobile */
+      backdrop-filter: none !important; /* Disable blur on mobile for massive FPS boost */
+      background-color: rgba(0, 0, 0, 0.8) !important; /* Fallback to solid alpha */
+    }
+
+    .shadow-2xl, .shadow-xl, .shadow-lg {
+      box-shadow: none !important;
+    }
+
+    /* Disable subtle float animations that add up */
+    .animate-float, .animate-pulse {
+      animation: none !important;
+    }
+
+    /* Hardware acceleration for all major sections */
+    section {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000;
     }
   }
 

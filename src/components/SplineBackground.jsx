@@ -8,20 +8,14 @@ export default function SplineBackground() {
     const containerRef = useRef(null);
     const [isLoaded, setIsLoaded] = useState(false);
     
-    // Low-overhead view detection (once: true for better performance)
-    const isInView = useInView(containerRef, { once: true, margin: "200px" });
+    // CRITICAL: once: false allows the component to unmount when the user scrolls away,
+    // freeing up GPU/CPU for other sections like FAQ and CTA.
+    const isInView = useInView(containerRef, { once: false, margin: "-10%" });
 
     const handleLoad = (splineApp) => {
         // Spline Component Optimization
         if (splineApp && window.innerWidth < 768) {
-            // Some versions of splineApp allow for performance tweaks
-            // We ensure it's loaded before showing to avoid "jumpy" frames
-            try {
-                // Potentially reduce quality for mobile if API allows
-                // (Depends on specific @splinetool versions)
-            } catch (e) {
-                console.log("Spline optimization skipped");
-            }
+            // Optional: lower quality for mobile if supported
         }
         setTimeout(() => setIsLoaded(true), 200);
     };
@@ -38,19 +32,26 @@ export default function SplineBackground() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-[1] pointer-events-none" />
 
             <div className="absolute inset-0 overflow-hidden transform-gpu">
-                {isInView && (
-                    <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
-                        <div className={`w-full h-full transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-                            <Spline
-                                scene="https://prod.spline.design/m65h6hm9S31ziTqn/scene.splinecode"
-                                className="w-full h-full scale-[1.02] md:scale-100" // Slight scale to hide edges on mobile
-                                onLoad={handleLoad}
-                                // Optimizing Spline via props where supported
-                                style={{ pointerEvents: 'none' }}
-                            />
-                        </div>
-                    </Suspense>
-                )}
+                <AnimatePresence>
+                    {isInView && (
+                        <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
+                            <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: isLoaded ? 1 : 0 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.8 }}
+                                className="w-full h-full"
+                            >
+                                <Spline
+                                    scene="https://prod.spline.design/m65h6hm9S31ziTqn/scene.splinecode"
+                                    className="w-full h-full scale-[1.02] md:scale-100"
+                                    onLoad={handleLoad}
+                                    style={{ pointerEvents: 'none' }}
+                                />
+                            </motion.div>
+                        </Suspense>
+                    )}
+                </AnimatePresence>
                 
                 {/* Optimized Anti-watermark mask */}
                 <div className="absolute bottom-0 right-0 w-[165px] h-[40px] bg-black z-10 pointer-events-none" />
@@ -58,4 +59,5 @@ export default function SplineBackground() {
         </motion.div>
     );
 }
+
 
