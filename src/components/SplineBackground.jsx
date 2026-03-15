@@ -1,5 +1,5 @@
 import React, { useRef, Suspense, useState, useEffect, lazy } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 // Lazy load Spline to keep initial bundle small
 const Spline = lazy(() => import('@splinetool/react-spline'));
@@ -59,5 +59,3 @@ export default function SplineBackground() {
         </motion.div>
     );
 }
-
-
