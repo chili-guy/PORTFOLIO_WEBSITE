@@ -36,8 +36,8 @@ const CTA = () => {
 
             <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10 relative z-30 flex flex-col items-center justify-center gap-8 sm:gap-12 text-center">
 
-                {/* Text Content - Lifted more (~20% total) */}
-                <div className="w-full max-w-5xl px-4 flex justify-center -translate-y-6 lg:-translate-y-24">
+                {/* Text Content - Lifted more (~32% total) */}
+                <div className="w-full max-w-5xl px-4 flex justify-center -translate-y-12 lg:-translate-y-40">
                     <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black leading-tight sm:leading-[1.1] text-white tracking-tighter uppercase mb-2 sm:mb-6 text-center w-full">
                         {t.cta.title} <br className="hidden sm:block" />
                         <span className="hero-highlight">{t.cta.titleAccent}</span>
