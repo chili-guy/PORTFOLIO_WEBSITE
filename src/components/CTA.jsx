@@ -34,7 +34,7 @@ const CTA = () => {
             <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_20%,black_90%)] opacity-80"></div>
             
             {/* Edge Security Blending */}
-            <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-black via-black/90 to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
