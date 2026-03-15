@@ -11,10 +11,10 @@ const ParticlesBackground = () => {
         const FPS_CAP = 30; // Limit to 30fps — smooth but light
         const FRAME_INTERVAL = 1000 / FPS_CAP;
 
-        // Fewer particles + shorter connection distance = much less O(n²) work
-        const PARTICLE_COUNT = 30;
-        const CONNECTION_DISTANCE = 100;
-        const MOUSE_RADIUS = 120;
+        // Increased density and visibility
+        const PARTICLE_COUNT = 60;
+        const CONNECTION_DISTANCE = 140;
+        const MOUSE_RADIUS = 150;
 
         let mouse = { x: null, y: null };
 
@@ -34,12 +34,13 @@ const ParticlesBackground = () => {
         // Pre-compute color string once
         const PARTICLE_COLOR = '#f2b90d';
 
+        // Slightly larger and more diverse speeds
         const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 1.5 + 0.5,
-            speedX: (Math.random() - 0.5) * 0.4,
-            speedY: (Math.random() - 0.5) * 0.4,
+            size: Math.random() * 2 + 1,
+            speedX: (Math.random() - 0.5) * 0.6,
+            speedY: (Math.random() - 0.5) * 0.6,
         }));
 
         const animate = (timestamp) => {
@@ -67,7 +68,7 @@ const ParticlesBackground = () => {
                 if (p.y > h) p.y = 0;
                 else if (p.y < 0) p.y = h;
 
-                // Mouse repulsion (skip sqrt — use squared distance)
+                // Mouse repulsion
                 if (mouse.x !== null) {
                     const dx = mouse.x - p.x;
                     const dy = mouse.y - p.y;
@@ -76,23 +77,23 @@ const ParticlesBackground = () => {
                     if (distSq < radiusSq && distSq > 0) {
                         const dist = Math.sqrt(distSq);
                         const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
-                        p.x -= (dx / dist) * force * 1.5;
-                        p.y -= (dy / dist) * force * 1.5;
+                        p.x -= (dx / dist) * force * 2;
+                        p.y -= (dy / dist) * force * 2;
                     }
                 }
 
-                // Draw dot
-                ctx.globalAlpha = 0.35;
+                // Draw dot - increased opacity
+                ctx.globalAlpha = 0.6;
                 ctx.fillStyle = PARTICLE_COLOR;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fill();
             }
 
-            // Draw connections (O(n²) but n is now 30, not 60)
+            // Draw connections - increased opacity and distance
             const connDistSq = CONNECTION_DISTANCE * CONNECTION_DISTANCE;
             ctx.strokeStyle = PARTICLE_COLOR;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.8;
 
             for (let a = 0; a < PARTICLE_COUNT; a++) {
                 for (let b = a + 1; b < PARTICLE_COUNT; b++) {
@@ -101,7 +102,7 @@ const ParticlesBackground = () => {
                     const distSq = dx * dx + dy * dy;
 
                     if (distSq < connDistSq) {
-                        const opacity = (1 - Math.sqrt(distSq) / CONNECTION_DISTANCE) * 0.18;
+                        const opacity = (1 - Math.sqrt(distSq) / CONNECTION_DISTANCE) * 0.35;
                         ctx.globalAlpha = opacity;
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
@@ -125,8 +126,8 @@ const ParticlesBackground = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="absolute inset-0 -z-10 pointer-events-none opacity-50"
-            style={{ willChange: 'auto' }}
+            className="absolute inset-0 -z-10 pointer-events-none"
+            style={{ willChange: 'transform' }}
         />
     );
 };

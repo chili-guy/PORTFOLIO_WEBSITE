@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import ParticlesBackground from './ParticlesBackground';
+import SplineBackground from './SplineBackground';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../constants/translations';
 
@@ -11,7 +11,7 @@ const Hero = () => {
 
     return (
         <section className="relative h-screen min-h-[700px] flex flex-col justify-between pt-32 pb-20 overflow-hidden">
-            <ParticlesBackground />
+            <SplineBackground />
 
             {/* Background Grid Overlay - Very subtle */}
             <div className="absolute inset-0 -z-10 bg-grid opacity-5 pointer-events-none"></div>
