@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import SplineBackground from './SplineBackground';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../constants/translations';
 
@@ -10,22 +9,19 @@ const Hero = () => {
     const t = translations[language];
 
     return (
-        <section className="relative h-screen min-h-[700px] flex flex-col justify-between pt-32 pb-20 overflow-hidden">
-            <SplineBackground />
-
+        <section className="relative min-h-[80vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-black">
             {/* Background Grid Overlay - Very subtle */}
             <div className="absolute inset-0 -z-10 bg-grid opacity-5 pointer-events-none"></div>
 
-            <div className="mx-auto max-w-7xl px-6 w-full h-full flex flex-col justify-between relative z-10">
+            <div className="mx-auto max-w-7xl px-6 w-full relative z-10 flex flex-col items-center text-center">
 
-                {/* Top Section: Title */}
+                {/* Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-4xl"
                 >
-                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 w-fit mb-8 backdrop-blur-sm">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-8 backdrop-blur-sm">
                         <span className="relative flex h-2.5 w-2.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
@@ -34,29 +30,32 @@ const Hero = () => {
                             {t.hero.badge}
                         </span>
                     </div>
+                </motion.div>
 
-                    <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[1.05] text-white tracking-tighter">
-                        {t.hero.title1} <br />
-                        <span className="hero-highlight">{t.hero.title2}</span> <br />
+                {/* Title */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                >
+                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-[1.1] text-white tracking-tighter mb-8">
+                        {t.hero.title1} <span className="hero-highlight">{t.hero.title2}</span> <br />
                         {t.hero.title3}
                     </h1>
                 </motion.div>
 
-                {/* Bottom Section: Description & Actions */}
+                {/* Description & CTAs */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="flex flex-col lg:flex-row items-end justify-between gap-10"
+                    className="flex flex-col items-center max-w-3xl"
                 >
-                    <div className="max-w-2xl text-left">
-                        <p className="text-xl lg:text-2xl text-slate-300 leading-relaxed font-medium">
-                            {t.hero.subtitle}
-                        </p>
+                    <p className="text-lg lg:text-xl text-slate-300 leading-relaxed font-medium mb-12">
+                        {t.hero.subtitle}
+                    </p>
 
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto shrink-0">
+                    <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                         <a href="#projects" className="button-primary w-full sm:w-auto h-16 px-10 group inline-flex items-center justify-center gap-3 rounded-none uppercase tracking-[0.2em] text-[11px] font-black transition-all bg-primary hover:bg-white hover:text-black">
                             {t.hero.ctaPrimary}
                             <ArrowRight className="size-4 group-hover:translate-x-2 transition-transform" />
