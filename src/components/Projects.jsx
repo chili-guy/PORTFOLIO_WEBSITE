@@ -48,13 +48,23 @@ const Projects = () => {
         if (el) {
             const onWheel = (e) => {
                 if (e.deltaY === 0) return;
-                e.preventDefault();
-                el.scrollTo({
-                    left: el.scrollLeft + e.deltaY * 2,
-                    behavior: 'smooth'
-                });
+                
+                const isScrollingDown = e.deltaY > 0;
+                const isScrollingUp = e.deltaY < 0;
+                const canScrollRight = el.scrollLeft < (el.scrollWidth - el.clientWidth - 10);
+                const canScrollLeft = el.scrollLeft > 10;
+
+                // Only hijack scroll if we can actually move horizontally in the intended direction
+                if ((isScrollingDown && canScrollRight) || (isScrollingUp && canScrollLeft)) {
+                    e.preventDefault();
+                    el.scrollTo({
+                        left: el.scrollLeft + e.deltaY * 2.5,
+                        behavior: 'auto' // Use 'auto' for more responsive wheel feel
+                    });
+                }
+                // Otherwise, let the default vertical scroll happen
             };
-            el.addEventListener('wheel', onWheel);
+            el.addEventListener('wheel', onWheel, { passive: false });
             return () => el.removeEventListener('wheel', onWheel);
         }
     }, []);

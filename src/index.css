@@ -102,11 +102,10 @@
 
     /* Hardware acceleration and rendering optimization for all major sections */
     section {
-      transform: translateZ(0);
+      transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
-      perspective: 1000;
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 1000px; /* Placeholder size for better scrollbar stability */
+      perspective: 1000px;
+      will-change: transform;
     }
   }
 
