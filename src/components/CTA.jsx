@@ -26,7 +26,7 @@ const CTA = () => {
                 muted
                 playsInline
             >
-                <source src="/Light_turning_on_off_delpmaspu_.mp4" type="video/mp4" />
+                <source src="/Light_disappear_reappear_loop_delpmaspu_.mp4" type="video/mp4" />
             </video>
 
             {/* Cinematic Overlay - more aggressive blending to avoid 'cuts' */}
