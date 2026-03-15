@@ -13,8 +13,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="relative bg-background-dark pt-24 pb-12 overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        <footer className="relative bg-black pt-24 pb-12 overflow-hidden">
 
             <div className="mx-auto max-w-7xl px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
