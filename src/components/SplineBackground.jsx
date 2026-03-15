@@ -56,7 +56,7 @@ export default function SplineBackground() {
                                 className="w-full h-full"
                             >
                                 <Spline
-                                    scene="https://prod.spline.design/m65h6hm9S31ziTqn/scene.splinecode"
+                                    scene="https://prod.spline.design/5f9cX97UwjHyVYF7/scene.splinecode"
                                     className="w-full h-full transform-gpu"
                                     onLoad={handleLoad}
                                     renderMode="performance"
