@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../constants/translations';
 
@@ -24,8 +24,13 @@ const FAQItem = ({ question, answer, index }) => {
                         {question}
                     </span>
                 </div>
-                <div className="size-8 rounded-full bg-accents flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shrink-0 mt-0.5 lg:mt-1">
-                    {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                <div className="size-8 rounded-full bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shrink-0 mt-0.5 lg:mt-1">
+                    <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        className="flex items-center justify-center"
+                    >
+                        <ChevronDown className="size-4" />
+                    </motion.div>
                 </div>
             </button>
             <AnimatePresence>
