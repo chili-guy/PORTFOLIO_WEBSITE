@@ -100,11 +100,11 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className={`glass-card border-white/5 group/card hover:border-primary/40 transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 hover:z-10 hover:scale-[1.05] group-hover/projects:opacity-20 hover:!opacity-100 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
+                            className={`glass-card border-white/5 group/card hover:border-primary/40 transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.05] lg:group-hover/projects:opacity-20 lg:hover:!opacity-100 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
                             onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
                         >
                             <div className="relative overflow-hidden aspect-[16/10] flex-shrink-0">
-                                <img src={project.image} alt={project.title} className={`w-full h-full object-cover object-top block transition-transform duration-700 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
+                                <img src={project.image} alt={project.title} loading="lazy" className={`w-full h-full object-cover object-top block transition-transform duration-700 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
                                 {project.status === 'live' && (
                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 bg-black/20 backdrop-blur-[2px]">
                                         <div className="px-6 py-3 bg-primary text-black font-bold text-xs uppercase tracking-[0.2em] rounded-none flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
