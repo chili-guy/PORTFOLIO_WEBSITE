@@ -10,13 +10,13 @@ const Hero = () => {
     const t = translations[language];
 
     return (
-        <section className="relative h-screen min-h-[700px] flex flex-col justify-between pt-20 pb-20 overflow-hidden">
+        <section className="relative h-screen min-h-[700px] flex flex-col justify-between pt-12 md:pt-20 pb-20 overflow-hidden">
             <SplineBackground />
 
             {/* Background Grid Overlay - Very subtle */}
             <div className="absolute inset-0 -z-10 bg-grid opacity-5 pointer-events-none"></div>
 
-            <div className="mx-auto max-w-7xl px-6 w-full h-full flex flex-col pt-32 pb-24 relative z-10">
+            <div className="mx-auto max-w-7xl px-6 w-full h-full flex flex-col pt-8 md:pt-32 pb-24 relative z-10">
 
                 {/* Top Group: Title & Badge */}
                 <div className="flex flex-col items-start w-full">
@@ -52,7 +52,7 @@ const Hero = () => {
                 </div>
 
                 {/* Bottom Group: Action Block - Back to the right and HIGHER UP */}
-                <div className="flex flex-col items-end w-full mt-12 md:mt-16 self-end">
+                <div className="flex flex-col items-end w-full mt-8 md:mt-16 self-end">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
