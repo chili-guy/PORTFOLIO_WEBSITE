@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/PORTFOLIO_WEBSITE/',
+  base: process.env.NODE_ENV === 'production' ? '/PORTFOLIO_WEBSITE/' : '/',
   plugins: [react()],
   build: {
     rollupOptions: {
