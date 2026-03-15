@@ -36,7 +36,7 @@ const About = () => {
                                 src="/profile.png"
                                 alt="Ramon Sousa"
                                 loading="lazy"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                                className="w-full h-full object-cover transition-all duration-1000"
                             />
                             {/* Glass overlay at the bottom */}
                             <motion.div 

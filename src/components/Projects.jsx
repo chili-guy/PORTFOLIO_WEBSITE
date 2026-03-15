@@ -118,7 +118,7 @@ const Projects = () => {
                             onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
                         >
                             <div className="relative overflow-hidden aspect-[16/10] flex-shrink-0">
-                                <img src={project.image} alt={project.title} loading="lazy" className={`w-full h-full object-cover object-top block transition-all duration-1000 group-hover/card:scale-110 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
+                                <img src={project.image} alt={project.title} loading="lazy" className={`w-full h-full object-cover object-top block transition-all duration-1000 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
                                 {project.status === 'live' && (
                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-30 bg-black/40 backdrop-blur-[2px]">
                                         <div className="px-8 py-4 bg-primary text-black font-black text-xs uppercase tracking-[0.25em] rounded-none flex items-center gap-3 transform translate-y-6 group-hover/card:translate-y-0 transition-all duration-500 shadow-2xl">
