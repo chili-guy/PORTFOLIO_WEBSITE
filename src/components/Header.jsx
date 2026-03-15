@@ -44,10 +44,10 @@ const Header = () => {
     return (
         <header
             className={cn(
-                "fixed top-0 z-50 w-full transition-all duration-300",
+                "fixed top-0 inset-x-0 z-50 transition-all duration-300 h-16",
                 isScrolled
-                    ? "h-16 bg-background-dark/80 backdrop-blur-md border-b border-white/5"
-                    : "h-20 bg-transparent border-transparent"
+                    ? "bg-background-dark/80 backdrop-blur-md border-b border-white/5"
+                    : "bg-transparent border-transparent"
             )}
         >
             <div className="mx-auto max-w-7xl px-6 h-full flex items-center justify-between">
@@ -127,4 +127,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default React.memo(Header);

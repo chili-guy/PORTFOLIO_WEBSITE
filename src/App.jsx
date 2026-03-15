@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Expertise from './components/Expertise'
-import Projects from './components/Projects'
-import About from './components/About'
-import FAQ from './components/FAQ'
-import Testimonials from './components/Testimonials'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
 import { LanguageProvider } from './context/LanguageContext'
+
+// Lazy load sections for better performance
+const Expertise = lazy(() => import('./components/Expertise'))
+const Projects = lazy(() => import('./components/Projects'))
+const About = lazy(() => import('./components/About'))
+const FAQ = lazy(() => import('./components/FAQ'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const CTA = lazy(() => import('./components/CTA'))
+const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   return (
@@ -19,14 +21,28 @@ function App() {
         <Header />
         <main>
           <Hero />
-          <Projects />
-          <About />
-          <Testimonials />
-          <Expertise />
-          <FAQ />
-          <CTA />
+          <Suspense fallback={<div className="h-40" />}>
+            <Projects />
+          </Suspense>
+          <Suspense fallback={<div className="h-40" />}>
+            <About />
+          </Suspense>
+          <Suspense fallback={<div className="h-40" />}>
+            <Testimonials />
+          </Suspense>
+          <Suspense fallback={<div className="h-40" />}>
+            <Expertise />
+          </Suspense>
+          <Suspense fallback={<div className="h-40" />}>
+            <FAQ />
+          </Suspense>
+          <Suspense fallback={<div className="h-40" />}>
+            <CTA />
+          </Suspense>
         </main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </div>
     </LanguageProvider>
   )

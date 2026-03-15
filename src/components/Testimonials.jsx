@@ -46,7 +46,7 @@ const Testimonials = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8 lg:mb-10">
                     <div className="flex flex-col items-start text-left gap-6">
                         <div className="flex items-center gap-4">
-                            <h2 className="text-sm font-bold text-primary italic uppercase tracking-widest">{t.testimonials.badge}</h2>
+                            <h2 className="text-sm font-bold text-primary uppercase tracking-widest">{t.testimonials.badge}</h2>
                             <div className="h-px w-12 bg-primary/30"></div>
                         </div>
                         <h3 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight">
@@ -82,7 +82,7 @@ const Testimonials = () => {
                                     <Star key={i} className="size-4 fill-primary text-primary" />
                                 ))}
                             </div>
-                            <p className="text-slate-300 text-sm lg:text-base leading-relaxed font-medium italic relative z-10 flex-1 mb-10 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 6, WebkitBoxOrient: 'vertical' }}>
+                            <p className="text-slate-300 text-sm lg:text-base leading-relaxed font-medium relative z-10 flex-1 mb-10 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 6, WebkitBoxOrient: 'vertical' }}>
                                 "{review.comment.trim()}"
                             </p>
                             <div className="pt-8 border-t border-white/5 mt-auto">

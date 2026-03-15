@@ -33,6 +33,7 @@ const About = () => {
                             <img
                                 src="/profile.png"
                                 alt="Ramon Sousa"
+                                loading="lazy"
                                 className="w-full h-full object-cover transition-all duration-700 scale-105 hover:scale-100"
                             />
                             {/* Glass overlay at the bottom */}
@@ -63,7 +64,7 @@ const About = () => {
                             </div>
                             <h2 className="text-4xl sm:text-6xl font-bold text-white leading-[1.1]">
                                 {t.aboutContent.title} <br />
-                                <span className="gradient-text italic">{t.aboutContent.titleAccent}</span>
+                                <span className="gradient-text">{t.aboutContent.titleAccent}</span>
                             </h2>
                         </div>
 

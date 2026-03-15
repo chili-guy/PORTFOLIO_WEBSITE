@@ -67,7 +67,7 @@
   }
 
   .hero-highlight {
-    @apply text-white italic font-black;
+    @apply text-white font-black;
   }
 
   .tech-card {
