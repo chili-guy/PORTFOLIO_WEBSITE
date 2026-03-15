@@ -36,16 +36,16 @@ const CTA = () => {
 
             <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10 relative z-30 flex flex-col items-center justify-center gap-8 sm:gap-12 text-center">
 
-                {/* Text Content - Refined lift for mobile balance */}
-                <div className="w-full max-w-5xl px-4 flex justify-center -translate-y-4 lg:-translate-y-16">
+                {/* Text Content - Lifted more (~20% total) */}
+                <div className="w-full max-w-5xl px-4 flex justify-center -translate-y-6 lg:-translate-y-24">
                     <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black leading-tight sm:leading-[1.1] text-white tracking-tighter uppercase mb-2 sm:mb-6 text-center w-full">
                         {t.cta.title} <br className="hidden sm:block" />
                         <span className="hero-highlight">{t.cta.titleAccent}</span>
                     </h2>
                 </div>
 
-                {/* Action - Refined position for mobile balance */}
-                <div className="flex justify-center w-full max-w-xs translate-y-4 lg:translate-y-10">
+                {/* Action - Lowered more (~10% total) */}
+                <div className="flex justify-center w-full max-w-xs translate-y-6 lg:translate-y-16">
                     <a
                         href={`https://wa.me/5591991266136?text=${encodeURIComponent(t.cta.waMsg)}`}
                         target="_blank"
