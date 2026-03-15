@@ -112,7 +112,7 @@ const getPrinciples = (t) => [
     }
 ];
 
-const TechMarquee = ({ icons }) => {
+const TechMarquee = React.memo(({ icons }) => {
     const duplicatedIcons = [...icons, ...icons, ...icons];
     return (
         <div className="relative w-full overflow-hidden py-1">
@@ -139,9 +139,9 @@ const TechMarquee = ({ icons }) => {
             </motion.div>
         </div>
     );
-};
+});
 
-const AccordionItem = ({ item, index, isOpen, onToggle, t }) => (
+const AccordionItem = React.memo(({ item, index, isOpen, onToggle, t }) => (
     <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className={`rounded-none border overflow-hidden transition-colors duration-300 ${isOpen ? item.borderColor : 'border-white/5'}`}>
         <button onClick={onToggle} className="w-full flex items-center gap-4 px-5 py-4 text-left">
             <div className={`size-9 rounded-none flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen ? `${item.glowColor} ${item.accentColor}` : 'bg-white/5 text-slate-500'}`}>
@@ -178,9 +178,9 @@ const AccordionItem = ({ item, index, isOpen, onToggle, t }) => (
             )}
         </AnimatePresence>
     </motion.div>
-);
+));
 
-const DesktopPanel = ({ active, setActive, principles, t }) => {
+const DesktopPanel = React.memo(({ active, setActive, principles, t }) => {
     const current = principles[active];
     return (
         <div className="grid grid-cols-5 gap-6">
@@ -236,7 +236,7 @@ const DesktopPanel = ({ active, setActive, principles, t }) => {
             </div>
         </div>
     );
-};
+});
 
 const Expertise = () => {
     const { language } = useLanguage();
@@ -271,4 +271,4 @@ const Expertise = () => {
     );
 };
 
-export default Expertise;
+export default React.memo(Expertise);

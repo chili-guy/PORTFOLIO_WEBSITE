@@ -46,4 +46,4 @@ const CTA = () => {
     );
 };
 
-export default CTA;
+export default React.memo(CTA);

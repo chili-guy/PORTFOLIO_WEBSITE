@@ -56,6 +56,7 @@
   .glass-card {
     @apply bg-surface-dark border border-white/10 relative overflow-hidden shadow-lg;
     transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform, opacity;
   }
 
   .glass-card::before {
@@ -79,6 +80,7 @@
   .button-primary {
     @apply h-12 px-8 bg-primary text-white font-bold text-sm hover:brightness-110 active:scale-95 transition-all relative overflow-hidden flex items-center justify-center gap-2;
     transform: translateZ(0);
+    will-change: transform, filter;
   }
 
   .button-secondary {

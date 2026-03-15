@@ -4,7 +4,7 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../constants/translations';
 
-const FAQItem = ({ question, answer, index }) => {
+const FAQItem = React.memo(({ question, answer, index }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -49,7 +49,7 @@ const FAQItem = ({ question, answer, index }) => {
             </AnimatePresence>
         </motion.div>
     );
-};
+});
 
 const FAQ = () => {
     const { language } = useLanguage();
@@ -82,4 +82,4 @@ const FAQ = () => {
     );
 };
 
-export default FAQ;
+export default React.memo(FAQ);
