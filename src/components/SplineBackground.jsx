@@ -29,7 +29,7 @@ export default function SplineBackground() {
                     >
                         <spline-viewer 
                             loading-anim-type="spinner-small-dark" 
-                            url="https://prod.spline.design/ZLiceCwM3mkMT6cd/scene.splinecode"
+                            url="https://prod.spline.design/m65h6hm9S31ziTqn/scene.splinecode"
                             style={{ 
                                 width: '100%', 
                                 height: '100%',
