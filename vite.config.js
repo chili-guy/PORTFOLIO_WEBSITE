@@ -15,6 +15,14 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1500,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
 })
+
 
