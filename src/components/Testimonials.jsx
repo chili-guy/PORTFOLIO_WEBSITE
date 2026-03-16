@@ -18,19 +18,19 @@ const Testimonials = () => {
     // Mouse wheel horizontal scroll logic
     useEffect(() => {
         const el = scrollRef.current;
-        if (el) {
+        if (el && window.innerWidth >= 1024) { // Only on Desktop
             const onWheel = (e) => {
                 if (e.deltaY === 0) return;
                 e.preventDefault();
                 el.scrollTo({
                     left: el.scrollLeft + e.deltaY * 2,
-                    behavior: 'smooth'
+                    behavior: 'auto'
                 });
             };
             el.addEventListener('wheel', onWheel);
             return () => el.removeEventListener('wheel', onWheel);
         }
-    }, []);
+    }, [language]);
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -69,15 +69,15 @@ const Testimonials = () => {
                     {reviewsList.map((review, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 40, scale: 0.98 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ 
-                                duration: 0.8,
-                                delay: index * 0.1,
-                                ease: [0.16, 1, 0.3, 1]
+                                duration: 0.5,
+                                delay: window.innerWidth < 768 ? 0 : index * 0.1,
+                                ease: "easeOut"
                             }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            className="glass-card p-7 lg:p-8 border-white/5 lg:hover:border-primary/40 transition-all duration-700 flex-shrink-0 w-[80%] sm:w-[45%] lg:w-[26%] snap-center relative flex flex-col lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 group h-auto"
+                            viewport={{ once: true, amount: 0.1 }}
+                            className="glass-card p-7 lg:p-8 border-white/5 lg:hover:border-primary/40 transition-all duration-700 flex-shrink-0 w-[85%] sm:w-[55%] lg:w-[26%] snap-center relative flex flex-col lg:hover:scale-[1.02] group h-auto transform-gpu"
                         >
                             <Quote className="absolute top-6 right-8 size-10 text-primary/5 group-hover:text-primary/10 transition-all duration-700 group-hover:rotate-12" />
                             <div className="flex gap-1.5 mb-6">

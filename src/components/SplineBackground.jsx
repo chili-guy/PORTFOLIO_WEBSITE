@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function SplineBackground() {
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { once: false, margin: "-10%" });
 
     return (
         <motion.div
@@ -17,15 +16,20 @@ export default function SplineBackground() {
                 {/* Visual continuity background */}
                 <div className="absolute inset-0 bg-black" />
                 
-                {/* Adjusted gradient for mobile screen - less aggressive on small screens */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-[1] pointer-events-none opacity-60 md:opacity-100" />
+                {/* Fallback Static/Animated Gradient for Mobile Performance */}
+                <div className="md:hidden absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-black opacity-80" />
+                <div className="md:hidden absolute -top-[50%] -left-[50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(0,102,255,0.08)_0%,transparent_50%)] animate-[pulse_8s_ease-in-out_infinite]" />
+                
+                {/* Main Content Fade Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-[2] pointer-events-none" />
 
-                <div className="absolute inset-x-0 top-0 h-full overflow-hidden">
+                {/* Spline Viewer - Hidden on Mobile for Performance */}
+                <div className="hidden md:block absolute inset-x-0 top-0 h-full overflow-hidden">
                     <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.5 }}
-                        className="w-full h-[calc(100%+60px)] origin-center" // 60px taller to hide logo
+                        className="w-full h-[calc(100%+60px)] origin-center"
                     >
                         <spline-viewer 
                             loading-anim-type="spinner-small-dark" 

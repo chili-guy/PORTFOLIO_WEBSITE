@@ -45,7 +45,7 @@ const Projects = () => {
     // Mouse wheel horizontal scroll logic
     useEffect(() => {
         const el = scrollRef.current;
-        if (el) {
+        if (el && window.innerWidth >= 1024) { // Only on Desktop
             const onWheel = (e) => {
                 if (e.deltaY === 0) return;
                 
@@ -59,15 +59,14 @@ const Projects = () => {
                     e.preventDefault();
                     el.scrollTo({
                         left: el.scrollLeft + e.deltaY * 2.5,
-                        behavior: 'auto' // Use 'auto' for more responsive wheel feel
+                        behavior: 'auto'
                     });
                 }
-                // Otherwise, let the default vertical scroll happen
             };
             el.addEventListener('wheel', onWheel, { passive: false });
             return () => el.removeEventListener('wheel', onWheel);
         }
-    }, []);
+    }, [language]); // Re-bind on language change just in case, though usually static
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -106,15 +105,15 @@ const Projects = () => {
                     {projectsList.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 40, scale: 0.98 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ 
-                                duration: 0.8,
-                                delay: index * 0.1,
-                                ease: [0.16, 1, 0.3, 1]
+                                duration: 0.5, // Faster on mobile
+                                delay: window.innerWidth < 768 ? 0 : index * 0.1,
+                                ease: "easeOut"
                             }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            className={`glass-card border-white/5 group/card transition-all duration-700 overflow-hidden flex-shrink-0 w-[80%] sm:w-[45%] lg:w-[32%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 flex flex-col h-auto ${project.status === 'live' ? 'cursor-pointer' : ''}`}
+                            viewport={{ once: true, amount: 0.1 }}
+                            className={`glass-card border-white/5 group/card transition-all duration-500 overflow-hidden flex-shrink-0 w-[85%] sm:w-[55%] lg:w-[32%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.02] flex flex-col h-auto transform-gpu ${project.status === 'live' ? 'cursor-pointer' : ''}`}
                             onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
                         >
                             <div className="relative overflow-hidden aspect-[16/9] flex-shrink-0">

@@ -115,7 +115,7 @@ const getPrinciples = (t) => [
 const TechMarquee = React.memo(({ icons }) => {
     const duplicatedIcons = [...icons, ...icons, ...icons];
     return (
-        <div className="relative w-full overflow-hidden py-1">
+        <div className="relative w-full overflow-hidden py-1 transform-gpu">
             <motion.div
                 className="flex gap-2 w-max"
                 initial={{ x: "0%" }}
@@ -124,9 +124,8 @@ const TechMarquee = React.memo(({ icons }) => {
                     x: {
                         repeat: Infinity,
                         repeatType: "loop",
-                        duration: 15,
+                        duration: 20, // Slower for less CPU stress
                         ease: "linear",
-                        delay: 0
                     }
                 }}
             >
@@ -143,15 +142,15 @@ const TechMarquee = React.memo(({ icons }) => {
 
 const AccordionItem = React.memo(({ item, index, isOpen, onToggle, t }) => (
     <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={window.innerWidth < 1024 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true, amount: 0.2 }} 
+        viewport={{ once: true, amount: 0.1 }} 
         transition={{ 
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: [0.16, 1, 0.3, 1]
+            duration: 0.4, // Faster
+            delay: index * 0.05,
+            ease: "easeOut"
         }} 
-        className={`rounded-none border overflow-hidden transition-all duration-500 ${isOpen ? item.borderColor + ' bg-surface-dark shadow-2xl' : 'border-white/5 bg-transparent'}`}
+        className={`rounded-none border overflow-hidden transition-all duration-300 transform-gpu ${isOpen ? item.borderColor + ' bg-surface-dark shadow-2xl' : 'border-white/5 bg-transparent'}`}
     >
         <button onClick={onToggle} className="w-full flex items-center gap-4 px-5 py-5 text-left group">
             <div className={`size-10 rounded-none flex items-center justify-center flex-shrink-0 transition-all duration-500 ${isOpen ? `${item.glowColor} ${item.accentColor} scale-110` : 'bg-white/5 text-slate-500 group-hover:bg-white/10 group-hover:text-slate-300'}`}>
@@ -165,9 +164,9 @@ const AccordionItem = React.memo(({ item, index, isOpen, onToggle, t }) => (
                 <ChevronDown className="size-4" />
             </motion.div>
         </button>
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
             {isOpen && (
-                <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} className="overflow-hidden">
+                <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                     <div className="px-5 pb-6 flex flex-col gap-5 border-t border-white/5">
                         <div className={`h-[2px] w-full bg-gradient-to-r ${item.color} mt-0`} />
                         <p className="text-slate-400 text-sm leading-relaxed font-medium">{item.desc}</p>
