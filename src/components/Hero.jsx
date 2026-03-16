@@ -10,13 +10,13 @@ const Hero = () => {
     const t = translations[language];
 
     return (
-        <section className="relative h-screen min-h-[660px] flex flex-col pt-10 md:pt-20 pb-10 md:pb-20 overflow-hidden" id="hero">
+        <section className="relative h-screen min-h-[700px] flex flex-col overflow-hidden" id="hero">
             <SplineBackground />
 
             {/* Background Grid Overlay - Very subtle */}
             <div className="absolute inset-0 -z-10 bg-grid opacity-5 pointer-events-none"></div>
 
-            <div className="mx-auto max-w-7xl px-6 w-full h-full flex flex-col pt-4 md:pt-32 pb-12 md:pb-24 relative z-10">
+            <div className="mx-auto max-w-7xl px-6 w-full h-full flex flex-col pt-24 md:pt-36 pb-12 md:pb-24 relative z-10">
 
                 {/* Top Group: Title & Badge */}
                 <div className="flex flex-col items-start text-left w-full">
