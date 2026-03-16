@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="mx-auto max-w-7xl px-6 w-full h-full flex flex-col pt-4 md:pt-32 pb-12 md:pb-24 relative z-10">
 
                 {/* Top Group: Title & Badge */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left w-full">
+                <div className="flex flex-col items-start text-left w-full">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -52,15 +52,15 @@ const Hero = () => {
                 </div>
 
                 {/* Bottom Group: Action Block */}
-                <div className="flex flex-col items-center md:items-end w-full mt-10 md:mt-16 md:self-end">
+                <div className="flex flex-col items-start md:items-end w-full mt-10 md:mt-16 md:self-end">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-col items-center md:items-end gap-8 w-full md:w-auto" 
+                        className="flex flex-col items-start md:items-end gap-8 w-full md:w-auto" 
                     >
                         <div className="max-w-xl">
-                            <div className="p-6 md:p-10 bg-black/30 backdrop-blur-2xl border-l md:border-l-0 md:border-r-2 border-primary/50 text-center md:text-right">
+                            <div className="p-6 md:p-10 bg-black/30 backdrop-blur-2xl border-l md:border-l-0 md:border-r-2 border-primary/50 text-left md:text-right">
                                 <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
                                     {t.hero.subtitle}
                                 </p>
