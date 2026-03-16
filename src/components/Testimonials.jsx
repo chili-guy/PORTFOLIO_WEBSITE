@@ -65,7 +65,7 @@ const Testimonials = () => {
                     </div>
                 </div>
 
-                <div ref={scrollRef} className="flex gap-6 md:gap-10 overflow-x-auto pb-10 pt-4 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing items-stretch">
+                <div ref={scrollRef} className="flex gap-4 md:gap-6 overflow-x-auto pb-10 pt-4 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing items-stretch">
                     {reviewsList.map((review, index) => (
                         <motion.div
                             key={index}
@@ -77,27 +77,18 @@ const Testimonials = () => {
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className="glass-card p-10 lg:p-12 border-white/5 lg:hover:border-primary/40 transition-all duration-700 flex-shrink-0 w-[85%] md:w-[60%] lg:w-[35%] snap-center relative flex flex-col lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 group"
-                            style={{ height: '480px' }}
+                            className="glass-card p-7 lg:p-8 border-white/5 lg:hover:border-primary/40 transition-all duration-700 flex-shrink-0 w-[80%] sm:w-[45%] lg:w-[26%] snap-center relative flex flex-col lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 group h-auto"
                         >
-                            <Quote className="absolute top-8 right-10 size-14 text-primary/5 group-hover:text-primary/10 transition-all duration-700 group-hover:rotate-12" />
-                            <div className="flex gap-1.5 mb-10">
+                            <Quote className="absolute top-6 right-8 size-10 text-primary/5 group-hover:text-primary/10 transition-all duration-700 group-hover:rotate-12" />
+                            <div className="flex gap-1.5 mb-6">
                                 {[...Array(5)].map((_, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, scale: 0 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: index * 0.1 + i * 0.1 }}
-                                        viewport={{ once: true }}
-                                    >
-                                        <Star className="size-5 fill-primary text-primary" />
-                                    </motion.div>
+                                    <Star key={i} className="size-3.5 fill-primary text-primary" />
                                 ))}
                             </div>
-                            <p className="text-slate-300 text-base lg:text-lg leading-relaxed font-medium relative z-10 flex-1 mb-12 overflow-hidden italic" style={{ display: '-webkit-box', WebkitLineClamp: 7, WebkitBoxOrient: 'vertical' }}>
+                            <p className="text-slate-300 text-sm leading-relaxed font-medium relative z-10 flex-1 mb-8 italic line-clamp-6">
                                 "{review.comment.trim()}"
                             </p>
-                            <div className="pt-10 border-t border-white/5 mt-auto relative z-10">
+                            <div className="pt-6 border-t border-white/5 mt-auto relative z-10">
                                 <h4 className="text-white font-bold text-lg tracking-tight mb-4 group-hover:text-primary transition-colors duration-500">{review.project}</h4>
                                 <div className="flex items-center gap-4">
                                     <span className="text-[11px] text-slate-500 font-black uppercase tracking-[0.2em] bg-white/5 border border-white/[0.05] px-3 py-1.5 rounded-none">{review.client}</span>

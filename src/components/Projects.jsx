@@ -102,7 +102,7 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div ref={scrollRef} className="flex gap-6 md:gap-10 overflow-x-auto pb-12 pt-6 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing items-stretch">
+                <div ref={scrollRef} className="flex gap-4 md:gap-8 overflow-x-auto pb-12 pt-6 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing items-stretch">
                     {projectsList.map((project, index) => (
                         <motion.div
                             key={index}
@@ -114,15 +114,15 @@ const Projects = () => {
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className={`glass-card border-white/5 group/card transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
+                            className={`glass-card border-white/5 group/card transition-all duration-700 overflow-hidden flex-shrink-0 w-[80%] sm:w-[45%] lg:w-[32%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 flex flex-col h-auto ${project.status === 'live' ? 'cursor-pointer' : ''}`}
                             onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
                         >
-                            <div className="relative overflow-hidden aspect-[16/10] flex-shrink-0">
+                            <div className="relative overflow-hidden aspect-[16/9] flex-shrink-0">
                                 <img src={project.image} alt={project.title} loading="lazy" className={`w-full h-full object-cover object-top block transition-all duration-1000 ${project.status === 'coming_soon' ? 'opacity-30 grayscale blur-[2px]' : ''}`} />
                                 {project.status === 'live' && (
                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-30 bg-black/40 backdrop-blur-[2px]">
-                                        <div className="px-8 py-4 bg-primary text-black font-black text-xs uppercase tracking-[0.25em] rounded-none flex items-center gap-3 transform translate-y-6 group-hover/card:translate-y-0 transition-all duration-500 shadow-2xl">
-                                            {t.projects.viewOnline} <ArrowUpRight className="size-4" />
+                                        <div className="px-6 py-3 bg-primary text-black font-black text-[10px] uppercase tracking-[0.25em] rounded-none flex items-center gap-3 transform translate-y-6 group-hover/card:translate-y-0 transition-all duration-500 shadow-2xl">
+                                            {t.projects.viewOnline} <ArrowUpRight className="size-3.5" />
                                         </div>
                                     </div>
                                 )}
@@ -130,27 +130,27 @@ const Projects = () => {
                                 
                                 {project.status === 'coming_soon' && (
                                     <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-                                        <div className="size-12 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center border border-white/10 mb-3">
-                                            <Lock className="size-5 text-slate-500" />
+                                        <div className="size-10 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center border border-white/10 mb-3">
+                                            <Lock className="size-4 text-slate-500" />
                                         </div>
-                                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em]">{t.projects.comingSoon}</span>
+                                        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-[0.3em]">{t.projects.comingSoon}</span>
                                     </div>
                                 )}
                             </div>
-                            <div className="p-8 lg:p-12 flex-1 flex flex-col">
-                                <div className="space-y-6 flex-1">
+                            <div className="p-7 lg:p-9 flex-1 flex flex-col">
+                                <div className="space-y-4 flex-1">
                                     <div className="space-y-2">
                                         <div className="flex items-center justify-between mb-2">
-                                            <span className="text-[11px] font-black text-primary uppercase tracking-[0.2em]">{project.category}</span>
+                                            <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">{project.category}</span>
                                             {project.status === 'live' && (
                                                 <div className="flex items-center gap-2">
-                                                    <div className="size-2 rounded-full bg-green-500 animate-pulse" />
-                                                    <span className="text-[10px] font-bold text-green-500/80 uppercase tracking-widest">{t.projects.active}</span>
+                                                    <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />
+                                                    <span className="text-[9px] font-bold text-green-500/80 uppercase tracking-widest">{t.projects.active}</span>
                                                 </div>
                                             )}
                                         </div>
-                                        <h4 className="text-3xl lg:text-4xl font-bold text-white group-hover/card:text-primary transition-colors duration-500">{project.title}</h4>
-                                        <p className="text-slate-400 text-base leading-relaxed font-medium line-clamp-2 min-h-[48px] pt-2">{project.desc}</p>
+                                        <h4 className="text-2xl lg:text-3xl font-bold text-white group-hover/card:text-primary transition-colors duration-500">{project.title}</h4>
+                                        <p className="text-slate-400 text-sm leading-relaxed font-medium line-clamp-2 pt-1">{project.desc}</p>
                                     </div>
                                     <div className="grid grid-cols-2 gap-x-6 gap-y-3 pt-2">
                                         {project.features.slice(0, 4).map((feature, i) => (
