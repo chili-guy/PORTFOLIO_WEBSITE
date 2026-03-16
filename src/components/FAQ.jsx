@@ -9,47 +9,46 @@ const FAQItem = React.memo(({ question, answer, index }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ 
-                duration: 0.4, 
-                delay: index * 0.05,
-                ease: "easeOut" 
-            }}
-            className="border-b border-white/5 last:border-0 transform-gpu"
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
+            className="border-b border-white/5 last:border-0"
+            style={{ willChange: 'opacity, transform' }}
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex justify-between items-start py-5 text-left group gap-4 outline-none"
+                className="w-full flex justify-between items-start py-5 text-left group gap-4 select-none"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
             >
                 <div className="flex items-start gap-6">
-                    <span className="text-primary font-mono text-xs opacity-40 group-hover:opacity-100 transition-opacity mt-2">0{index + 1}/</span>
-                    <span className="font-bold text-lg lg:text-2xl text-white group-hover:text-primary transition-colors leading-tight lg:leading-normal">
+                    <span className="text-primary font-mono text-xs opacity-40 mt-2 flex-shrink-0">0{index + 1}/</span>
+                    <span className="font-bold text-base lg:text-2xl text-white leading-tight lg:leading-normal">
                         {question}
                     </span>
                 </div>
-                <div className="size-8 rounded-none bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shrink-0 mt-0.5 lg:mt-1">
-                    <motion.div
+                <div className="size-8 rounded-none bg-white/5 flex items-center justify-center text-primary flex-shrink-0 mt-0.5 transition-colors duration-200"
+                     style={{ transform: 'translateZ(0)' }}>
+                    <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="flex items-center justify-center"
+                        transition={{ duration: 0.25 }}
+                        style={{ display: 'flex' }}
                     >
                         <ChevronDown className="size-4" />
-                    </motion.div>
+                    </motion.span>
                 </div>
             </button>
             <AnimatePresence initial={false}>
                 {isOpen && (
                     <motion.div
-                        key="content"
+                        key="answer"
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
+                        transition={{ duration: 0.28, ease: [0.04, 0.62, 0.23, 0.98] }}
+                        style={{ overflow: 'hidden' }}
                     >
-                        <div className="pb-5 pl-12 text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl font-medium">
+                        <div className="pb-5 pl-12 text-slate-400 text-sm leading-relaxed max-w-2xl">
                             {answer}
                         </div>
                     </motion.div>
@@ -58,6 +57,8 @@ const FAQItem = React.memo(({ question, answer, index }) => {
         </motion.div>
     );
 });
+
+FAQItem.displayName = 'FAQItem';
 
 const FAQ = () => {
     const { language } = useLanguage();
@@ -73,13 +74,11 @@ const FAQ = () => {
                     <h2 className="text-3xl lg:text-4xl font-bold text-white">
                         {t.faq.title} <span className="gradient-text">{t.faq.titleAccent}</span>
                     </h2>
-                    <p className="text-slate-500 font-bold text-xs">
-                        {t.faq.subtitle}
-                    </p>
+                    <p className="text-slate-500 font-bold text-xs">{t.faq.subtitle}</p>
                 </div>
 
-                <div className="bg-surface-dark/20 rounded-none p-4 border border-white/5 backdrop-blur-sm">
-                    <div className="bg-surface-dark/40 rounded-none p-3 lg:p-8">
+                <div className="bg-black/40 p-4 border border-white/5">
+                    <div className="bg-black/40 p-3 lg:p-8">
                         {t.faq.data.map((item, index) => (
                             <FAQItem key={index} index={index} question={item.question} answer={item.answer} />
                         ))}
