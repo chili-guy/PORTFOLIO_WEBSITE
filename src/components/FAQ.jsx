@@ -9,14 +9,19 @@ const FAQItem = React.memo(({ question, answer, index }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="border-b border-white/5 last:border-0"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ 
+                duration: 0.4, 
+                delay: index * 0.05,
+                ease: "easeOut" 
+            }}
+            className="border-b border-white/5 last:border-0 transform-gpu"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex justify-between items-start py-5 text-left group gap-4"
+                className="w-full flex justify-between items-start py-5 text-left group gap-4 outline-none"
             >
                 <div className="flex items-start gap-6">
                     <span className="text-primary font-mono text-xs opacity-40 group-hover:opacity-100 transition-opacity mt-2">0{index + 1}/</span>
@@ -27,21 +32,24 @@ const FAQItem = React.memo(({ question, answer, index }) => {
                 <div className="size-8 rounded-none bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shrink-0 mt-0.5 lg:mt-1">
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
                         className="flex items-center justify-center"
                     >
                         <ChevronDown className="size-4" />
                     </motion.div>
                 </div>
             </button>
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isOpen && (
                     <motion.div
+                        key="content"
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <div className="pb-5 pl-12 text-slate-400 text-base leading-relaxed max-w-2xl font-medium">
+                        <div className="pb-5 pl-12 text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl font-medium">
                             {answer}
                         </div>
                     </motion.div>
