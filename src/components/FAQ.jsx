@@ -65,7 +65,7 @@ const FAQ = () => {
     const t = translations[language];
 
     return (
-        <section className="py-8 lg:py-14 relative" id="faq">
+        <section className="py-6 lg:py-10 relative" id="faq">
             <div className="mx-auto max-w-4xl px-6">
                 <div className="flex flex-col items-center text-center gap-4 mb-8 lg:mb-12">
                     <div className="size-12 rounded-none bg-primary/10 flex items-center justify-center text-primary">

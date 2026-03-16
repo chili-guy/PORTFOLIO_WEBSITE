@@ -14,7 +14,7 @@ const About = () => {
     ];
 
     return (
-        <section className="py-12 lg:py-32 relative overflow-hidden" id="about">
+        <section className="py-6 lg:py-12 relative overflow-hidden" id="about">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                     {/* Image Column */}

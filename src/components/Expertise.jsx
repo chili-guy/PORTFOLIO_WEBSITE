@@ -291,7 +291,7 @@ const Expertise = () => {
     const [openMobile, setOpenMobile] = useState(0);
 
     return (
-        <section className="py-8 lg:py-16 relative" id="expertise">
+        <section className="py-6 lg:py-12 relative" id="expertise">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-8 lg:mb-12 space-y-3">
                     <div className="flex items-center gap-4">

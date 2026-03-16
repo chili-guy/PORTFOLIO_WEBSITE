@@ -84,7 +84,7 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="py-8 lg:py-14 relative" id="testimonials">
+        <section className="py-6 lg:py-10 relative" id="testimonials">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8 lg:mb-10">
                     <div className="flex flex-col items-start text-left gap-4">
@@ -115,11 +115,9 @@ const Testimonials = () => {
                 */}
                 <div
                     ref={scrollRef}
-                    className="flex gap-4 md:gap-6 overflow-x-auto pb-10 pt-4 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar"
+                    className="flex gap-4 md:gap-6 overflow-x-auto pb-8 pt-4 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar"
                     style={{
-                        willChange: 'scroll-position',
                         overscrollBehaviorX: 'contain',
-                        touchAction: 'pan-x',
                         WebkitOverflowScrolling: 'touch',
                     }}
                 >
