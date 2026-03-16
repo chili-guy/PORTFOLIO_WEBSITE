@@ -102,19 +102,19 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div ref={scrollRef} className="flex gap-6 md:gap-14 overflow-x-auto pb-12 pt-6 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing group/projects items-stretch">
+                <div ref={scrollRef} className="flex gap-6 md:gap-10 overflow-x-auto pb-12 pt-6 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing items-stretch">
                     {projectsList.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            initial={{ opacity: 0, y: 40, scale: 0.98 }}
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ 
                                 duration: 0.8,
-                                delay: index * 0.15,
+                                delay: index * 0.1,
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className={`glass-card border-white/5 group/card transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.03] lg:group-hover/projects:opacity-30 lg:hover:!opacity-100 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
+                            className={`glass-card border-white/5 group/card transition-all duration-700 overflow-hidden flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative z-0 lg:hover:z-10 lg:hover:scale-[1.02] lg:hover:shadow-2xl lg:hover:shadow-primary/5 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
                             onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
                         >
                             <div className="relative overflow-hidden aspect-[16/10] flex-shrink-0">
@@ -174,6 +174,9 @@ const Projects = () => {
                                     )}
                                 </div>
                             </div>
+                            
+                            {/* Decorative gradient corner matching testimonials */}
+                            <div className="absolute -bottom-10 -right-10 size-40 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>
