@@ -4,17 +4,20 @@ import { Plus, Minus } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../constants/translations';
 
-const NodeItem = React.memo(({ question, answer, index, isOpen, onToggle, side }) => {
+const NodeItem = React.memo(({ question, answer, index, isOpen, onToggle, side, totalItems }) => {
     // Creating the orbital curve effect
-    const isMiddle = index === 1; // Assuming 3 items per side
+    const isTop = index === 0;
+    const isBottom = index === totalItems - 1;
     
-    // Left items: curve to the right for top/bot (translate-x pos), push left for middle (translate-x neg)
-    // Right items: curve to the left for top/bot (translate-x neg), push right for middle (translate-x pos)
     let orbitOffset = '';
     if (side === 'left') {
-        orbitOffset = isMiddle ? 'lg:-translate-x-10' : 'lg:translate-x-12';
+        if (isTop) orbitOffset = 'lg:-translate-x-4 lg:-translate-y-6';
+        else if (isBottom) orbitOffset = 'lg:-translate-x-4 lg:translate-y-6';
+        else orbitOffset = 'lg:translate-x-12';
     } else {
-        orbitOffset = isMiddle ? 'lg:translate-x-10' : 'lg:-translate-x-12';
+        if (isTop) orbitOffset = 'lg:translate-x-4 lg:-translate-y-6';
+        else if (isBottom) orbitOffset = 'lg:translate-x-4 lg:translate-y-6';
+        else orbitOffset = 'lg:-translate-x-12';
     }
 
     return (
@@ -133,12 +136,13 @@ const FAQ = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 w-full items-center">
                     
                     {/* Left Orbit */}
-                    <div className="flex flex-col gap-4 lg:gap-14 w-full">
+                    <div className="flex flex-col gap-4 lg:gap-10 w-full">
                         {leftItems.map((item, index) => (
                             <NodeItem 
                                 key={`left-${index}`} 
                                 index={index}
                                 side="left"
+                                totalItems={leftItems.length}
                                 question={item.question} 
                                 answer={item.answer} 
                                 isOpen={openIndex === index}
@@ -151,13 +155,14 @@ const FAQ = () => {
                     <div className="hidden lg:block w-full h-full pointer-events-none" />
 
                     {/* Right Orbit */}
-                    <div className="flex flex-col gap-4 lg:gap-14 w-full">
+                    <div className="flex flex-col gap-4 lg:gap-10 w-full">
                         {rightItems.map((item, index) => (
                             <NodeItem 
                                 key={`right-${index}`} 
                                 // Adjust index for accurate absolute referencing if needed, but relative 0,1,2 is fine for the curve math
                                 index={index} 
                                 side="right"
+                                totalItems={rightItems.length}
                                 question={item.question} 
                                 answer={item.answer} 
                                 isOpen={openIndex === index + half}
