@@ -1,40 +1,38 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { ChevronDown, MessageSquareCode } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../constants/translations';
 
 const FAQItem = React.memo(({ question, answer, index, isOpen, onToggle }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
-            className={`border-b border-white/5 last:border-0 transition-colors duration-300 ${isOpen ? 'bg-primary/5' : ''}`}
-            style={{ willChange: 'opacity, transform' }}
+        <div
+            className={`border-b border-white/5 last:border-0 transition-all duration-500 relative ${isOpen ? 'bg-primary/[0.03]' : ''}`}
         >
+            {/* Visual connector line that activates when open */}
+            <div className={`absolute -left-4 top-0 bottom-0 w-[2px] bg-primary transition-all duration-500 origin-top ${isOpen ? 'scale-y-100 opacity-100 shadow-[0_0_15px_rgba(0,102,255,0.8)]' : 'scale-y-0 opacity-0'}`} />
+
             <button
                 onClick={onToggle}
-                className="w-full flex justify-between items-start py-5 px-4 lg:px-6 text-left group gap-4 select-none"
+                className="w-full flex justify-between items-start py-6 px-4 lg:px-6 text-left group gap-4 select-none"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
             >
                 <div className="flex items-start gap-4 lg:gap-6">
-                    <span className={`font-mono text-xs mt-1 lg:mt-2 flex-shrink-0 transition-colors ${isOpen ? 'text-primary' : 'text-primary/40'}`}>
+                    <span className={`font-mono text-xs mt-1 lg:mt-2 flex-shrink-0 transition-colors duration-500 ${isOpen ? 'text-primary' : 'text-slate-600'}`}>
                         0{index + 1}/
                     </span>
-                    <span className={`font-bold text-sm sm:text-base lg:text-lg leading-tight lg:leading-normal transition-colors ${isOpen ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>
+                    <span className={`font-bold text-sm sm:text-base lg:text-xl leading-snug transition-colors duration-500 ${isOpen ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
                         {question}
                     </span>
                 </div>
-                <div className={`size-8 rounded-none border flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen ? 'bg-primary border-primary text-black' : 'bg-white/5 border-transparent text-primary group-hover:bg-white/10'}`}
-                     style={{ transform: 'translateZ(0)' }}>
+                <div className="size-8 rounded-none flex items-center justify-center flex-shrink-0">
                     <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         style={{ display: 'flex' }}
+                        className={`transition-colors duration-500 ${isOpen ? 'text-primary' : 'text-slate-600 group-hover:text-slate-400'}`}
                     >
-                        <ChevronDown className="size-4" />
+                        <ChevronDown className="size-5" />
                     </motion.span>
                 </div>
             </button>
@@ -45,19 +43,16 @@ const FAQItem = React.memo(({ question, answer, index, isOpen, onToggle }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease: [0.04, 0.62, 0.23, 0.98] }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         style={{ overflow: 'hidden' }}
                     >
-                        <div className="pb-6 px-4 lg:px-6 pl-12 lg:pl-16 text-slate-400 text-sm leading-relaxed max-w-2xl relative">
-                            {/* Visual link to the "AI" */}
-                            <div className="absolute left-6 lg:left-8 top-0 bottom-6 w-px bg-gradient-to-b from-primary/30 to-transparent" />
-                            <div className="absolute left-[22px] lg:left-[30px] top-2 size-1.5 rounded-none bg-primary animate-pulse" />
+                        <div className="pb-8 px-4 lg:px-6 pl-12 lg:pl-[4.5rem] text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl">
                             {answer}
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.div>
+        </div>
     );
 });
 
@@ -71,94 +66,82 @@ const FAQ = () => {
     const isInView = useInView(containerRef, { margin: "200px" });
 
     return (
-        <section className="py-12 lg:py-24 relative" id="faq">
-            <div className="mx-auto max-w-7xl px-6">
+        <section className="py-16 lg:py-32 relative overflow-hidden" id="faq">
+            {/* Ambient background glow to seat the AI orb seamlessly */}
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 blur-[150px] opacity-30 rounded-full pointer-events-none" />
+
+            <div className="mx-auto max-w-7xl px-6 relative z-10">
                 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
                     
-                    {/* Left Column: AI Interface */}
-                    <div className="col-span-1 lg:col-span-5">
-                        <div className="sticky top-24 lg:top-32 flex flex-col gap-6">
+                    {/* Left Column: Organic Floating AI */}
+                    <div className="col-span-1 lg:col-span-5 relative">
+                        <div className="lg:sticky lg:top-1/4 flex flex-col items-center lg:items-start text-center lg:text-left h-auto">
                             
-                            {/* Title & Badge */}
-                            <div className="space-y-4">
-                                <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary/20 bg-primary/10">
-                                    <MessageSquareCode className="size-4 text-primary" />
-                                    <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">{t.faq.badge || "FAQ"}</span>
-                                </div>
-                                <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
+                            <div className="mb-8 w-full">
+                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight">
                                     {t.faq.title} <br />
                                     <span className="gradient-text">{t.faq.titleAccent}</span>
                                 </h2>
-                                <p className="text-slate-400 text-sm">{t.faq.subtitle}</p>
                             </div>
 
-                            {/* Spline AI Orb Container */}
+                            {/* Floating Free Spline Orb */}
                             <div 
                                 ref={containerRef}
-                                className="relative aspect-square w-full max-w-sm mx-auto lg:mx-0 border border-white/10 bg-black/50 overflow-hidden group"
+                                className="relative w-full aspect-square max-w-[320px] lg:max-w-md mx-auto lg:mx-0 -translate-x-4 lg:-translate-x-12"
                             >
-                                {/* Futuristic overlay frames */}
-                                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/40 pointer-events-none z-10 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
-                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40 pointer-events-none z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40 pointer-events-none z-10 transition-transform group-hover:-translate-x-1 group-hover:translate-y-1" />
-                                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/40 pointer-events-none z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" />
-                                
-                                {/* Status Indicator */}
-                                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-2 py-1 bg-black/60 border border-white/5 backdrop-blur-sm">
-                                    <span className="relative flex h-1.5 w-1.5">
-                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
-                                    </span>
-                                    <span className="text-[8px] font-mono text-slate-300 uppercase tracking-widest">Sys.Core_Online</span>
-                                </div>
-
-                                {/* Spline Viewer */}
-                                <div className={`absolute inset-0 transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
+                                {/* Spline Viewer directly on the background without frames */}
+                                <div className={`absolute inset-0 transition-opacity duration-[2s] ease-out ${isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                                     {isInView && (
                                         <spline-viewer 
                                             loading-anim-type="spinner-small-dark" 
                                             url="https://prod.spline.design/bOpmz3UtuUOIXWvI/scene.splinecode"
-                                            style={{ width: '100%', height: '100%', outline: 'none' }}
+                                            style={{ width: '100%', height: '100%', outline: 'none', background: 'transparent' }}
                                         ></spline-viewer>
                                     )}
                                 </div>
-                                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none z-10" />
                                 
-                                {/* Bottom AI Processing Text */}
-                                <div className="absolute bottom-4 left-0 w-full text-center z-20">
+                                {/* Overlay status text responding to user interaction */}
+                                <div className="absolute -bottom-4 lg:bottom-10 left-1/2 lg:left-24 -translate-x-1/2 pointer-events-none flex flex-col items-center lg:items-start gap-1">
                                     <AnimatePresence mode="wait">
-                                        <motion.p 
+                                        <motion.div 
                                             key={openIndex}
-                                            initial={{ opacity: 0, y: 5 }}
+                                            initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -5 }}
-                                            className="text-[10px] font-mono text-primary/70 uppercase tracking-widest"
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="flex items-center gap-2"
                                         >
-                                            {openIndex !== null ? "Processing Query..." : "Awaiting Input..."}
-                                        </motion.p>
+                                            <span className="relative flex h-2 w-2">
+                                                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${openIndex !== null ? 'bg-green-400' : 'bg-primary'}`}></span>
+                                                <span className={`relative inline-flex rounded-full h-2 w-2 ${openIndex !== null ? 'bg-green-500' : 'bg-primary'}`}></span>
+                                            </span>
+                                            <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.2em] whitespace-nowrap">
+                                                {openIndex !== null ? "AI Generating Response" : "Awaiting user input"}
+                                            </span>
+                                        </motion.div>
                                     </AnimatePresence>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
-                    {/* Right Column: Questions */}
-                    <div className="col-span-1 lg:col-span-7 flex flex-col justify-center">
-                        <div className="bg-black/40 border border-white/5 p-2 sm:p-4">
-                            <div className="bg-black/40 p-2 sm:p-4 lg:p-6">
-                                {t.faq.data.map((item, index) => (
-                                    <FAQItem 
-                                        key={index} 
-                                        index={index} 
-                                        question={item.question} 
-                                        answer={item.answer} 
-                                        isOpen={openIndex === index}
-                                        onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-                                    />
-                                ))}
-                            </div>
+                    {/* Right Column: Clean Floating Questions */}
+                    <div className="col-span-1 lg:col-span-7 flex flex-col justify-center relative pt-8 lg:pt-0">
+                        {/* Connecting visual element - subtle bg ray from the orb */}
+                        <div className="hidden lg:block absolute top-1/2 -left-16 -translate-y-1/2 w-32 h-[80%] bg-[radial-gradient(ellipse_at_left,rgba(0,102,255,0.08)_0%,transparent_100%)] pointer-events-none" />
+
+                        <div className="flex flex-col gap-2 relative z-10 w-full">
+                            {t.faq.data.map((item, index) => (
+                                <FAQItem 
+                                    key={index} 
+                                    index={index} 
+                                    question={item.question} 
+                                    answer={item.answer} 
+                                    isOpen={openIndex === index}
+                                    onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+                                />
+                            ))}
                         </div>
                     </div>
 
