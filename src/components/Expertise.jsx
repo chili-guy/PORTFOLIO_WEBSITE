@@ -154,29 +154,30 @@ const AccordionItem = React.memo(({ item, index, isOpen, onToggle, t }) => (
                 <ChevronDown className="size-4" />
             </span>
         </button>
-        <div className={`grid transition-[grid-template-rows] duration-200 ease-in-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
-            <div className="overflow-hidden">
-                <div className={`px-5 pb-6 flex flex-col gap-4 border-t border-white/5 transition-opacity duration-200 ${isOpen ? 'opacity-100 delay-100' : 'opacity-0'}`}>
-                    <div className={`h-[2px] w-full bg-gradient-to-r ${item.color}`} />
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                    <TechMarquee icons={item.techIcons} />
-                    <div className="grid grid-cols-1 gap-2">
-                        {item.skills.map((skill, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                                <CheckCircle2 className={`size-4 flex-shrink-0 ${item.accentColor}`} />
-                                <span className="text-slate-300 text-xs">{skill}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <a
-                        href={`https://wa.me/5591991266136?text=${encodeURIComponent(t.expertise.waMsg + item.title + '!')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest ${item.accentColor} mt-1`}
-                    >
-                        {t.expertise.requestService} <ArrowRight className="size-3" />
-                    </a>
+        <div 
+            className="transition-all duration-300 ease-in-out overflow-hidden"
+            style={{ maxHeight: isOpen ? '800px' : '0px', opacity: isOpen ? 1 : 0.5 }}
+        >
+            <div className={`px-5 pb-6 flex flex-col gap-4 border-t border-white/5 transition-opacity duration-300 ${isOpen ? 'opacity-100 delay-100' : 'opacity-0'}`}>
+                <div className={`h-[2px] w-full bg-gradient-to-r ${item.color}`} />
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                <TechMarquee icons={item.techIcons} />
+                <div className="grid grid-cols-1 gap-2">
+                    {item.skills.map((skill, i) => (
+                        <div key={i} className="flex items-center gap-3">
+                            <CheckCircle2 className={`size-4 flex-shrink-0 ${item.accentColor}`} />
+                            <span className="text-slate-300 text-xs">{skill}</span>
+                        </div>
+                    ))}
                 </div>
+                <a
+                    href={`https://wa.me/5591991266136?text=${encodeURIComponent(t.expertise.waMsg + item.title + '!')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest ${item.accentColor} mt-1`}
+                >
+                    {t.expertise.requestService} <ArrowRight className="size-3" />
+                </a>
             </div>
         </div>
     </div>
