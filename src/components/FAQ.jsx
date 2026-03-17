@@ -110,7 +110,7 @@ const FAQ = () => {
             
             {/* Central Spline Orb - The "Core" */}
             {/* On mobile it acts as the background, on desktop it sits perfectly inside the hollow grid */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden mix-blend-screen translate-y-[10%]">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden mix-blend-screen translate-y-[5%]">
                 <div ref={containerRef} className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] lg:w-[1200px] lg:h-[1200px] opacity-80 sm:opacity-100 flex items-center justify-center">
                     <div className={`w-full h-full transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
                         {isInView && (
