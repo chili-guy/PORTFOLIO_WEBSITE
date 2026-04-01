@@ -123,6 +123,12 @@ export const translations = {
             },
             data: [
                 {
+                    title: 'Assessor Nico',
+                    category: 'SaaS / FinTech & IA',
+                    desc: 'Assistente financeiro pessoal inteligente via WhatsApp com IA. Registra gastos, receitas e tarefas por mensagem de texto, gerando relatórios financeiros detalhados e insights automáticos.',
+                    features: ['Assistente IA via WhatsApp', 'Controle de Despesas', 'Relatórios Financeiros', 'Lembretes Automáticos'],
+                },
+                {
                     title: 'Calcularq',
                     category: 'SaaS / ArchTech',
                     desc: 'Plataforma estratégica de precificação para arquitetos. Elimina a subjetividade do cálculo por m² através de uma metodologia baseada em complexidade técnica e esforço dedicado.',
@@ -386,6 +392,12 @@ export const translations = {
                 waMsg: 'Hi Ramon, I saw your projects and want to build something like that!'
             },
             data: [
+                {
+                    title: 'Assessor Nico',
+                    category: 'SaaS / FinTech & AI',
+                    desc: 'Intelligent personal financial assistant via WhatsApp powered by AI. Tracks expenses, income, and tasks through text messages, generating detailed financial reports and automatic insights.',
+                    features: ['AI Assistant via WhatsApp', 'Expense Tracking', 'Financial Reports', 'Automated Reminders'],
+                },
                 {
                     title: 'Calcularq',
                     category: 'SaaS / ArchTech',
