@@ -20,7 +20,7 @@ const ProjectCard = React.memo(({ project, index, t }) => (
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        className={`border border-white/5 bg-black/60 group/card flex-shrink-0 w-[85%] sm:w-[55%] lg:w-[32%] snap-center relative z-0 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
+        className={`border border-white/5 bg-black/60 group/card flex-shrink-0 w-[85%] sm:w-[55%] lg:w-[30%] snap-center relative z-0 flex flex-col ${project.status === 'live' ? 'cursor-pointer' : ''}`}
         style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
         onClick={() => project.status === 'live' && window.open(project.link, '_blank')}
     >
@@ -147,6 +147,8 @@ const Projects = () => {
                     </div>
                 </div>
 
+                <div className="relative">
+                <div className="pointer-events-none absolute right-0 top-0 bottom-10 w-32 bg-gradient-to-l from-black to-transparent z-10" />
                 <div
                     ref={scrollRef}
                     className="flex gap-4 md:gap-8 overflow-x-auto pb-10 pt-4 px-6 md:px-12 -mx-6 md:-mx-12 snap-x snap-mandatory no-scrollbar"
@@ -158,6 +160,7 @@ const Projects = () => {
                     {projectsList.map((project, index) => (
                         <ProjectCard key={index} project={project} index={index} t={t} />
                     ))}
+                </div>
                 </div>
 
                 <motion.div
