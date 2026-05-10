@@ -7,6 +7,7 @@ import { LazyMotion, domMax } from 'framer-motion'
 // Lazy load sections for better performance
 const Expertise = lazy(() => import('./components/Expertise'))
 const Projects = lazy(() => import('./components/Projects'))
+const Automations = lazy(() => import('./components/Automations'))
 const About = lazy(() => import('./components/About'))
 const FAQ = lazy(() => import('./components/FAQ'))
 const Testimonials = lazy(() => import('./components/Testimonials'))
@@ -25,6 +26,9 @@ function App() {
             <Hero />
             <Suspense fallback={<div className="h-[500px]" />}>
               <Projects />
+            </Suspense>
+            <Suspense fallback={<div className="h-[500px]" />}>
+              <Automations />
             </Suspense>
             <Suspense fallback={<div className="h-[500px]" />}>
               <About />

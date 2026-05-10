@@ -3,6 +3,7 @@ export const translations = {
         nav: {
             expertise: 'Especialidades',
             projects: 'Projetos',
+            automations: 'Automações',
             testimonials: 'Avaliações',
             faq: 'Dúvidas',
         },
@@ -110,9 +111,12 @@ export const translations = {
             badge: 'Trabalhos em Destaque',
             title: 'Projetos que',
             titleAccent: 'Impulsionam Negócios',
+            subtitle: 'Cases reais entregues — do conceito ao deploy. Cada projeto resolve um problema concreto de negócio.',
             viewOnline: 'Ver Projeto Online',
             comingSoon: 'Em Desenvolvimento',
-            active: 'Active',
+            active: 'No Ar',
+            counter: 'projetos no ar',
+            scrollHint: 'Arraste para explorar',
             inlineCta: {
                 badge: 'Pronto para o próximo passo?',
                 title: 'Quer um projeto como esse?',
@@ -146,6 +150,32 @@ export const translations = {
                     desc: 'Ecossistema de apoio psicológico e social focado no bem-estar emocional e integração de comunidades em transição.',
                     features: ['Suporte Personalizado', 'Inscrição Segura', 'Foco Multicultural', 'Integração Ágil'],
                 }
+            ]
+        },
+        automations: {
+            badge: 'Agentes & Automações',
+            title: 'Automações Inteligentes',
+            titleAccent: 'com n8n & IA',
+            subtitle: 'Veja na prática como construo agentes de IA e fluxos automatizados que trabalham 24/7 — do WhatsApp ao seu CRM.',
+            comingSoon: 'Em Breve',
+            soon: 'Em Breve',
+            live: 'Ao Vivo',
+            cards: [
+                {
+                    title: 'Liz — Recepcionista IA no WhatsApp',
+                    category: 'Agência de Viagens / R3 Destinos',
+                    desc: 'Agente de IA no WhatsApp que faz primeiro contato, qualifica leads em 3 fluxos (cotação, cliente atual, fornecedor), distribui para o Travel Designer certo via hash determinístico e registra tudo no CRM — com tom brasileiro e sem parecer robô.',
+                },
+                {
+                    title: 'Em breve',
+                    category: 'Automação / RAG',
+                    desc: 'Novo case de automação a caminho — agente conectado a uma base de conhecimento personalizada via RAG.',
+                },
+                {
+                    title: 'Em breve',
+                    category: 'Automação / CRM',
+                    desc: 'Em produção: integração de IA com CRM e múltiplas APIs para qualificação automática de leads.',
+                },
             ]
         },
         testimonials: {
@@ -273,6 +303,7 @@ export const translations = {
         nav: {
             expertise: 'Expertise',
             projects: 'Projects',
+            automations: 'Automations',
             testimonials: 'Testimonials',
             faq: 'FAQ',
         },
@@ -380,9 +411,12 @@ export const translations = {
             badge: 'Featured Works',
             title: 'Projects that',
             titleAccent: 'Drive Businesses',
+            subtitle: 'Real cases shipped — from concept to deploy. Each project solves a concrete business problem.',
             viewOnline: 'View Project Online',
             comingSoon: 'Coming Soon',
-            active: 'Active',
+            active: 'Live',
+            counter: 'live projects',
+            scrollHint: 'Drag to explore',
             inlineCta: {
                 badge: 'Ready for the next step?',
                 title: 'Want a project like this?',
@@ -416,6 +450,32 @@ export const translations = {
                     desc: 'Psychological and social support ecosystem focused on emotional well-being and integration of communities in transition.',
                     features: ['Personalized Support', 'Secure Registration', 'Multicultural Focus', 'Agile Integration'],
                 }
+            ]
+        },
+        automations: {
+            badge: 'Agents & Automations',
+            title: 'Smart Automations',
+            titleAccent: 'with n8n & AI',
+            subtitle: 'See in practice how I build AI agents and automated flows that work 24/7 — from WhatsApp to your CRM.',
+            comingSoon: 'Coming Soon',
+            soon: 'Soon',
+            live: 'Live',
+            cards: [
+                {
+                    title: 'Liz — AI WhatsApp Receptionist',
+                    category: 'Travel Agency / R3 Destinos',
+                    desc: 'AI agent on WhatsApp that handles first contact, qualifies leads across 3 flows (quote, existing client, supplier), routes to the right Travel Designer via deterministic hashing, and logs everything into the CRM — with a natural Brazilian tone.',
+                },
+                {
+                    title: 'Coming soon',
+                    category: 'Automation / RAG',
+                    desc: 'New automation case on the way — agent connected to a custom knowledge base via RAG.',
+                },
+                {
+                    title: 'Coming soon',
+                    category: 'Automation / CRM',
+                    desc: 'In production: AI integration with CRM and multiple APIs for automatic lead qualification.',
+                },
             ]
         },
         testimonials: {
