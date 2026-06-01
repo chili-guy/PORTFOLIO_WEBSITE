@@ -167,9 +167,9 @@ export const translations = {
                     desc: 'Agente de IA no WhatsApp que faz primeiro contato, qualifica leads em 3 fluxos (cotação, cliente atual, fornecedor), distribui para o Travel Designer certo via hash determinístico e registra tudo no CRM — com tom brasileiro e sem parecer robô.',
                 },
                 {
-                    title: 'Em breve',
-                    category: 'Automação / RAG',
-                    desc: 'Novo case de automação a caminho — agente conectado a uma base de conhecimento personalizada via RAG.',
+                    title: 'Agente de IA para Consórcio — Atendimento, Qualificação e Follow-up 24/7',
+                    category: 'Consórcio / Qualificação de Leads',
+                    desc: 'Agente de IA que atende leads de consórcio no WhatsApp, qualifica o perfil de cada contato e dispara follow-ups automáticos até a conversão — mantendo o time comercial focado só em quem está pronto para fechar.',
                 },
                 {
                     title: 'Em breve',
@@ -467,9 +467,9 @@ export const translations = {
                     desc: 'AI agent on WhatsApp that handles first contact, qualifies leads across 3 flows (quote, existing client, supplier), routes to the right Travel Designer via deterministic hashing, and logs everything into the CRM — with a natural Brazilian tone.',
                 },
                 {
-                    title: 'Coming soon',
-                    category: 'Automation / RAG',
-                    desc: 'New automation case on the way — agent connected to a custom knowledge base via RAG.',
+                    title: 'AI Agent for Consortium — Service, Qualification & 24/7 Follow-up',
+                    category: 'Consortium / Lead Qualification',
+                    desc: 'AI agent that handles consortium leads on WhatsApp, qualifies each contact\'s profile, and triggers automatic follow-ups until conversion — keeping the sales team focused only on deals ready to close.',
                 },
                 {
                     title: 'Coming soon',

@@ -107,8 +107,9 @@ const Automations = () => {
             title: t.automations.cards[1].title,
             category: t.automations.cards[1].category,
             desc: t.automations.cards[1].desc,
-            tags: ['n8n', 'IA', 'RAG'],
-            status: 'coming_soon',
+            tags: ['n8n', 'IA', 'WhatsApp', 'Follow-up'],
+            videoId: 'Kl4dSYa6Sxc',
+            status: 'live',
         },
         {
             title: t.automations.cards[2].title,
