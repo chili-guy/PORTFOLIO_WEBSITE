@@ -3,6 +3,7 @@ export const translations = {
         nav: {
             expertise: 'Especialidades',
             projects: 'Projetos',
+            demos: 'Demos',
             automations: 'Automações',
             testimonials: 'Avaliações',
             faq: 'Dúvidas',
@@ -127,6 +128,18 @@ export const translations = {
             },
             data: [
                 {
+                    title: 'ProRastro',
+                    category: 'SaaS / Rastreamento Veicular',
+                    desc: 'Plataforma de rastreamento e localização em tempo real — "Tecnologia em Localização". Interface para acompanhar veículos e ativos com geolocalização, em acesso web e mobile.',
+                    features: ['Rastreamento em Tempo Real', 'Geolocalização', 'Painel Web', 'Acesso Mobile'],
+                },
+                {
+                    title: 'Axion Environmental',
+                    category: 'Site Institucional / Controle de Pragas',
+                    desc: 'Site institucional para empresa de dedetização profissional com atuação no Brasil, EUA e Portugal. Apresenta serviços, certificações (ANVISA/IBAMA/ISO) e captação de leads via WhatsApp.',
+                    features: ['Captação de Leads', 'Certificações em Destaque', 'Design Responsivo', 'SEO Otimizado'],
+                },
+                {
                     title: 'Assessor Nico',
                     category: 'SaaS / FinTech & IA',
                     desc: 'Assistente financeiro pessoal inteligente via WhatsApp com IA. Registra gastos, receitas e tarefas por mensagem de texto, gerando relatórios financeiros detalhados e insights automáticos.',
@@ -175,6 +188,22 @@ export const translations = {
                     title: 'Em breve',
                     category: 'Automação / CRM',
                     desc: 'Em produção: integração de IA com CRM e múltiplas APIs para qualificação automática de leads.',
+                },
+            ]
+        },
+        demos: {
+            badge: 'Demos em Vídeo',
+            title: 'Sites & Sistemas',
+            titleAccent: 'em Ação',
+            subtitle: 'Walkthroughs gravados mostrando projetos de desenvolvimento por dentro — da interface ao funcionamento real.',
+            comingSoon: 'Em Breve',
+            soon: 'Em Breve',
+            live: 'Ao Vivo',
+            cards: [
+                {
+                    title: 'Site + Sistema de Checker',
+                    category: 'Desenvolvimento Web / Sistema',
+                    desc: 'Walkthrough completo do site e do sistema de checker que desenvolvi — mostrando a interface, os fluxos e o funcionamento na prática.',
                 },
             ]
         },
@@ -303,6 +332,7 @@ export const translations = {
         nav: {
             expertise: 'Expertise',
             projects: 'Projects',
+            demos: 'Demos',
             automations: 'Automations',
             testimonials: 'Testimonials',
             faq: 'FAQ',
@@ -427,6 +457,18 @@ export const translations = {
             },
             data: [
                 {
+                    title: 'ProRastro',
+                    category: 'SaaS / Vehicle Tracking',
+                    desc: 'Real-time tracking and location platform — "Location Technology". Interface to monitor vehicles and assets via geolocation, with web and mobile access.',
+                    features: ['Real-Time Tracking', 'Geolocation', 'Web Dashboard', 'Mobile Access'],
+                },
+                {
+                    title: 'Axion Environmental',
+                    category: 'Corporate Website / Pest Control',
+                    desc: 'Corporate website for a professional pest control company operating in Brazil, the USA, and Portugal. Showcases services, certifications (ANVISA/IBAMA/ISO), and WhatsApp lead capture.',
+                    features: ['Lead Capture', 'Featured Certifications', 'Responsive Design', 'SEO Optimized'],
+                },
+                {
                     title: 'Assessor Nico',
                     category: 'SaaS / FinTech & AI',
                     desc: 'Intelligent personal financial assistant via WhatsApp powered by AI. Tracks expenses, income, and tasks through text messages, generating detailed financial reports and automatic insights.',
@@ -475,6 +517,22 @@ export const translations = {
                     title: 'Coming soon',
                     category: 'Automation / CRM',
                     desc: 'In production: AI integration with CRM and multiple APIs for automatic lead qualification.',
+                },
+            ]
+        },
+        demos: {
+            badge: 'Video Demos',
+            title: 'Websites & Systems',
+            titleAccent: 'in Action',
+            subtitle: 'Recorded walkthroughs showing development projects from the inside — from the interface to how they actually work.',
+            comingSoon: 'Coming Soon',
+            soon: 'Soon',
+            live: 'Live',
+            cards: [
+                {
+                    title: 'Website + Checker System',
+                    category: 'Web Development / System',
+                    desc: 'Full walkthrough of the website and checker system I built — showing the interface, the flows, and how it works in practice.',
                 },
             ]
         },

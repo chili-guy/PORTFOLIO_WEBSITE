@@ -106,10 +106,12 @@ const Projects = () => {
     const t = translations[language];
 
     const projectsList = [
-        { title: t.projects.data[0].title, category: t.projects.data[0].category, desc: t.projects.data[0].desc, tags: ['Node.js', 'WhatsApp', 'IA', 'FinTech'], link: 'https://www.nicoassessor.com/', image: '/projects/nico_assessor.png', features: t.projects.data[0].features, status: 'live' },
-        { title: t.projects.data[1].title, category: t.projects.data[1].category, desc: t.projects.data[1].desc, tags: ['React', 'Next.js', 'Tailwind', 'Metodologia Própria'], link: 'https://calcarq.vercel.app/', image: '/projects/calcularq_v3.png', features: t.projects.data[1].features, status: 'live' },
-        { title: t.projects.data[2].title, category: t.projects.data[2].category, desc: t.projects.data[2].desc, tags: ['SaaS', 'Automação', 'Engenharia', 'Telecom'], link: 'https://zeo.app.br/', image: '/projects/zeo_v3.png', features: t.projects.data[2].features, status: 'live' },
-        { title: t.projects.data[3].title, category: t.projects.data[3].category, desc: t.projects.data[3].desc, tags: ['React', 'Tailwind', 'Vercel', 'UX Design'], link: 'https://tekoa-react-98s5.vercel.app/', image: '/projects/tekoa_v2.png', features: t.projects.data[3].features, status: 'live' },
+        { title: t.projects.data[0].title, category: t.projects.data[0].category, desc: t.projects.data[0].desc, tags: ['Web App', 'Rastreamento', 'GPS', 'Tempo Real'], link: 'https://app.prorastro.com.br/', image: '/projects/prorastro.png', features: t.projects.data[0].features, status: 'live' },
+        { title: t.projects.data[1].title, category: t.projects.data[1].category, desc: t.projects.data[1].desc, tags: ['Landing Page', 'SEO', 'Responsivo', 'WhatsApp'], link: 'https://axionenviromental.com.br/', image: '/projects/axion.png', features: t.projects.data[1].features, status: 'live' },
+        { title: t.projects.data[2].title, category: t.projects.data[2].category, desc: t.projects.data[2].desc, tags: ['Node.js', 'WhatsApp', 'IA', 'FinTech'], link: 'https://www.nicoassessor.com/', image: '/projects/nico_assessor.png', features: t.projects.data[2].features, status: 'live' },
+        { title: t.projects.data[3].title, category: t.projects.data[3].category, desc: t.projects.data[3].desc, tags: ['React', 'Next.js', 'Tailwind', 'Metodologia Própria'], link: 'https://calcarq.vercel.app/', image: '/projects/calcularq_v3.png', features: t.projects.data[3].features, status: 'live' },
+        { title: t.projects.data[4].title, category: t.projects.data[4].category, desc: t.projects.data[4].desc, tags: ['SaaS', 'Automação', 'Engenharia', 'Telecom'], link: 'https://zeo.app.br/', image: '/projects/zeo_v3.png', features: t.projects.data[4].features, status: 'live' },
+        { title: t.projects.data[5].title, category: t.projects.data[5].category, desc: t.projects.data[5].desc, tags: ['React', 'Tailwind', 'Vercel', 'UX Design'], link: 'https://tekoa-react-98s5.vercel.app/', image: '/projects/tekoa_v2.png', features: t.projects.data[5].features, status: 'live' },
     ];
 
     const liveCount = projectsList.filter(p => p.status === 'live').length;
